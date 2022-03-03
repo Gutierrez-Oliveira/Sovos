@@ -12,6 +12,7 @@ ${Arquivo}          ${EXECDIR}/files/SPED_CFOP.CSV
 
 Start Session
     New Browser     chromium        headless=False      slowMo=00:00:01
+    New Context     viewport={'width': 1920, 'height': 1080}
     New Page        ${BASE_URL}
 
     Fill Text       id=frmERP_Login:usuario     FIT@0410

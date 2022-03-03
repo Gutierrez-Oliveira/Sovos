@@ -2,7 +2,7 @@
 Documentation           Teste menu configurações
 Resource            ${EXECDIR}/resources/base.robot
 Resource            ${EXECDIR}/resources/actions.robot
-Resource            ${EXECDIR}/locators/menu_configuracoes.robot
+Resource            ${EXECDIR}/locators/Configuracoes.robot
 
 Test Setup      Start Session
 Test Teardown   Finish Session
@@ -12,6 +12,11 @@ Test Teardown   Finish Session
 Importar tabela CFOP
 
     Acesso menu importação de arquivos
+    Select Options By                       xpath=//*[@id="form:j_idt84"]       text        CFOP
+    Upload File By Selector                 id=form:upload_input                ${Arquivo}
+    Sleep                                   5
+    #Wait For Elements State                
+
     
 
 

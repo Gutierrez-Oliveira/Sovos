@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.10.0 on win32)" generated="20220316 19:30:53.524" rpa="false" schemaversion="2">
+<suite id="s1" name="KNW" source="C:\Sovos\cloud_fiscal\API_KNW\tests\KNW.robot">
+<test id="s1-t1" name="Consultar Empresas">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>X-Token=5b2$Mg</arg>
+<arg>X-Cnpj=11431155000107</arg>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220316 19:30:53.777" level="INFO">${payload} = {'X-Token': '5b2$Mg', 'X-Cnpj': '11431155000107', 'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20220316 19:30:53.777" endtime="20220316 19:30:53.778"/>
+</kw>
+<kw name="GET Empresas" library="EmpresasRoute">
+<var>${response}</var>
+<arg>${payload}</arg>
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${API_USERS}/dadosEmpresas</arg>
+<arg>json=${payload}</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20220316 19:30:54.045" level="FAIL">ConnectionError: HTTPConnectionPool(host='www.hom.sped.cloudfiscal.com', port=80): Max retries exceeded with url: /SPED_WEB/api/knw/v2/dadosEmpresas (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000026E58DFF3A0&gt;: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))</msg>
+<status status="FAIL" starttime="20220316 19:30:53.778" endtime="20220316 19:30:54.045"/>
+</kw>
+<status status="FAIL" starttime="20220316 19:30:53.778" endtime="20220316 19:30:54.045"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="NOT RUN" starttime="20220316 19:30:54.046" endtime="20220316 19:30:54.046"/>
+</kw>
+<status status="FAIL" starttime="20220316 19:30:53.776" endtime="20220316 19:30:54.047">ConnectionError: HTTPConnectionPool(host='www.hom.sped.cloudfiscal.com', port=80): Max retries exceeded with url: /SPED_WEB/api/knw/v2/dadosEmpresas (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000026E58DFF3A0&gt;: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))</status>
+</test>
+<doc>Session route test suite</doc>
+<status status="FAIL" starttime="20220316 19:30:53.529" endtime="20220316 19:30:54.049"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="KNW">KNW</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

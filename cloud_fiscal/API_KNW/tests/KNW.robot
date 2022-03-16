@@ -1,8 +1,15 @@
 *Settings*
-Documentation           Teste menu configurações
-Resource            ${EXECDIR}/resources/base.robot
-Resource            ${EXECDIR}/resources/actions.robot
-Resource            ${EXECDIR}/locators/Configuracoes.robot
+Documentation           Session route test suite
 
-Test Setup      Start Session
-Test Teardown   Finish Session
+#Library                 RequestsLibrary
+
+Resource                ${EXECDIR}/resources/Base.robot
+
+*Test Cases*
+Consultar Empresas
+
+    ${payload}      Create Dictionary       X-Token=5b2$Mg       X-Cnpj=11431155000107      Content-Type=application/json
+
+    ${response}     GET Empresas       ${payload}
+
+    Status Should Be        200                     ${response}

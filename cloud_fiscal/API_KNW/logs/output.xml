@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.2 (Python 3.10.0 on win32)" generated="20220316 19:30:53.524" rpa="false" schemaversion="2">
+<robot generator="Robot 4.1.2 (Python 3.10.0 on win32)" generated="20220317 13:29:30.499" rpa="false" schemaversion="2">
 <suite id="s1" name="KNW" source="C:\Sovos\cloud_fiscal\API_KNW\tests\KNW.robot">
 <test id="s1-t1" name="Consultar Empresas">
 <kw name="Create Dictionary" library="BuiltIn">
@@ -8,8 +8,8 @@
 <arg>X-Cnpj=11431155000107</arg>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220316 19:30:53.777" level="INFO">${payload} = {'X-Token': '5b2$Mg', 'X-Cnpj': '11431155000107', 'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20220316 19:30:53.777" endtime="20220316 19:30:53.778"/>
+<msg timestamp="20220317 13:29:30.853" level="INFO">${payload} = {'X-Token': '5b2$Mg', 'X-Cnpj': '11431155000107', 'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20220317 13:29:30.852" endtime="20220317 13:29:30.853"/>
 </kw>
 <kw name="GET Empresas" library="EmpresasRoute">
 <var>${response}</var>
@@ -18,31 +18,96 @@
 <var>${response}</var>
 <arg>${API_USERS}/dadosEmpresas</arg>
 <arg>json=${payload}</arg>
+<arg>expected_status=any</arg>
 <doc>Sends a GET request.</doc>
-<msg timestamp="20220316 19:30:54.045" level="FAIL">ConnectionError: HTTPConnectionPool(host='www.hom.sped.cloudfiscal.com', port=80): Max retries exceeded with url: /SPED_WEB/api/knw/v2/dadosEmpresas (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000026E58DFF3A0&gt;: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))</msg>
-<status status="FAIL" starttime="20220316 19:30:53.778" endtime="20220316 19:30:54.045"/>
+<msg timestamp="20220317 13:29:31.463" level="INFO">GET Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/dadosEmpresas 
+ path_url=/SPED_WEB/api/knw/v2/dadosEmpresas 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '85', 'Content-Type': 'application/json'} 
+ body=b'{"X-Token": "5b2$Mg", "X-Cnpj": "11431155000107", "Content-Type": "application/json"}' 
+ </msg>
+<msg timestamp="20220317 13:29:31.464" level="INFO">GET Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/dadosEmpresas 
+ status=204, reason=No Content 
+ headers={'Date': 'Thu, 17 Mar 2022 16:29:31 GMT', 'Connection': 'close', 'Set-Cookie': 'AWSALB=xQQOCI9LGaGLkjiDpWtV8SzUFgi1hg+OdUR29cZLzqKqVT88ipmzEnZs4ePxW71/SnUSqtmQAvDFAAJ32rESF9MUCoqBDewaKhYsQLyp1Gd63xMqG4Dagr/fUdHK; Expires=Thu, 24 Mar 2022 16:29:31 GMT; Path=/, AWSALBCORS=xQQOCI9LGaGLkjiDpWtV8SzUFgi1hg+OdUR29cZLzqKqVT88ipmzEnZs4ePxW71/SnUSqtmQAvDFAAJ32rESF9MUCoqBDewaKhYsQLyp1Gd63xMqG4Dagr/fUdHK; Expires=Thu, 24 Mar 2022 16:29:31 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
+ body=None 
+ </msg>
+<msg timestamp="20220317 13:29:31.464" level="INFO">${response} = &lt;Response [204]&gt;</msg>
+<status status="PASS" starttime="20220317 13:29:30.854" endtime="20220317 13:29:31.464"/>
 </kw>
-<status status="FAIL" starttime="20220316 19:30:53.778" endtime="20220316 19:30:54.045"/>
+<msg timestamp="20220317 13:29:31.464" level="INFO">${response} = &lt;Response [204]&gt;</msg>
+<status status="PASS" starttime="20220317 13:29:30.853" endtime="20220317 13:29:31.464"/>
 </kw>
 <kw name="Status Should Be" library="RequestsLibrary">
 <arg>200</arg>
 <arg>${response}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<status status="NOT RUN" starttime="20220316 19:30:54.046" endtime="20220316 19:30:54.046"/>
+<msg timestamp="20220317 13:29:31.477" level="FAIL">Url: http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/dadosEmpresas Expected status: 204 != 200</msg>
+<status status="FAIL" starttime="20220317 13:29:31.465" endtime="20220317 13:29:31.477"/>
 </kw>
-<status status="FAIL" starttime="20220316 19:30:53.776" endtime="20220316 19:30:54.047">ConnectionError: HTTPConnectionPool(host='www.hom.sped.cloudfiscal.com', port=80): Max retries exceeded with url: /SPED_WEB/api/knw/v2/dadosEmpresas (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x0000026E58DFF3A0&gt;: Failed to establish a new connection: [Errno 11001] getaddrinfo failed'))</status>
+<status status="FAIL" starttime="20220317 13:29:30.852" endtime="20220317 13:29:31.478">Url: http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/dadosEmpresas Expected status: 204 != 200</status>
+</test>
+<test id="s1-t2" name="KNW F600 Retida Fonte">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>X-Token=01032007</arg>
+<arg>X-Cnpj=11272927000105</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220317 13:29:31.483" level="INFO">${payload} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105'}</msg>
+<status status="PASS" starttime="20220317 13:29:31.482" endtime="20220317 13:29:31.483"/>
+</kw>
+<kw name="Factory User Fonte" library="body">
+<var>${payload}</var>
+<arg>knwF600</arg>
+<msg timestamp="20220317 13:29:31.484" level="INFO">${payload} = {'COD_EMPRESA': ('1',), 'COD_FILIAL': ('1',), 'ID_USUARIO_IMP': ('NETSUITE NFSE ITG',), 'chave_REGISTRO': ('5952',), 'DT_REFERENCIA': ('2021-12-16T15:02:50.764Z',), 'DM_NAT_RETENCAO': ('02',), 'DT_REC...</msg>
+<status status="PASS" starttime="20220317 13:29:31.484" endtime="20220317 13:29:31.485"/>
+</kw>
+<kw name="POST Retida Fonte" library="RetidaFonte">
+<var>${response}</var>
+<arg>${payload}</arg>
+<kw name="POST" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${API_USERS}/contribuicaoRetidaFonte</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20220317 13:29:31.996" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/contribuicaoRetidaFonte 
+ path_url=/SPED_WEB/api/knw/v2/contribuicaoRetidaFonte 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '463', 'Content-Type': 'application/json'} 
+ body=b'{"COD_EMPRESA": ["1"], "COD_FILIAL": ["1"], "ID_USUARIO_IMP": ["NETSUITE NFSE ITG"], "chave_REGISTRO": ["5952"], "DT_REFERENCIA": ["2021-12-16T15:02:50.764Z"], "DM_NAT_RETENCAO": ["02"], "DT_REC_RETENCAO": ["2021-09-25T07:00:00.000Z"], "VL_BC_RETENCAO": ["100"], "VL_RETIDO_FONT": ["1922.36"], "CD_RECEITA": ["5952"], "DM_NAT_RECEITA": ["1"], "NR_CNPJ_FONTE": ["02359572000455"], "VL_RETIDO_PIS": ["406,72"], "VL_RETIDO_COFINS": ["3515.64"], "DM_DECLARANTE": "0"}' 
+ </msg>
+<msg timestamp="20220317 13:29:31.996" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/contribuicaoRetidaFonte 
+ status=400, reason=Bad Request 
+ headers={'Date': 'Thu, 17 Mar 2022 16:29:31 GMT', 'Content-Type': 'text/html;charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=leDjyBuKyq7q4emeuqCUP1RKkn6R2Slyd6TqnjBrzVQbx/h32EEw/qv0xtw3igJ6W8YaIFkqXTAh6++3GB0TJQDEj4D+1vgyPNH7DQVh9UjmquJ4UV/S6KCo5O4H; Expires=Thu, 24 Mar 2022 16:29:31 GMT; Path=/, AWSALBCORS=leDjyBuKyq7q4emeuqCUP1RKkn6R2Slyd6TqnjBrzVQbx/h32EEw/qv0xtw3igJ6W8YaIFkqXTAh6++3GB0TJQDEj4D+1vgyPNH7DQVh9UjmquJ4UV/S6KCo5O4H; Expires=Thu, 24 Mar 2022 16:29:31 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY', 'Content-Encoding': 'gzip', 'Vary': 'Accept-Encoding'} 
+ body=&lt;html&gt;&lt;head&gt;&lt;title&gt;JBoss Web/7.0.13.Final - Error report&lt;/title&gt;&lt;style&gt;&lt;!--H1 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:22px;} H2 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:16px;} H3 {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;font-size:14px;} BODY {font-family:Tahoma,Arial,sans-serif;color:black;background-color:white;} B {font-family:Tahoma,Arial,sans-serif;color:white;background-color:#525D76;} P {font-family:Tahoma,Arial,sans-serif;background:white;color:black;font-size:12px;}A {color : black;}A.name {color : black;}HR {color : #525D76;}--&gt;&lt;/style&gt; &lt;/head&gt;&lt;body&gt;&lt;h1&gt;HTTP Status 400 - org.codehaus.jackson.map.exc.UnrecognizedPropertyException: Unrecognized field &amp;quot;COD_EMPRESA&amp;quot; (Class com.cloudfiscal.integracao.blocoF.IntegracaoSCF600List), not marked as ignorable
+ at [Source: org.apache.catalina.connector.CoyoteInputStream@30bddbf4; line: 1, column: 18] (through reference chain: com.cloudfiscal.integracao.blocoF.IntegracaoSCF600List[&amp;quot;COD_EMPRESA&amp;quot;])&lt;/h1&gt;&lt;HR size="1" noshade="noshade"&gt;&lt;p&gt;&lt;b&gt;type&lt;/b&gt; Status report&lt;/p&gt;&lt;p&gt;&lt;b&gt;message&lt;/b&gt; &lt;u&gt;org.codehaus.jackson.map.exc.UnrecognizedPropertyException: Unrecognized field &amp;quot;COD_EMPRESA&amp;quot; (Class com.cloudfiscal.integracao.blocoF.IntegracaoSCF600List), not marked as ignorable
+ at [Source: org.apache.catalina.connector.CoyoteInputStream@30bddbf4; line: 1, column: 18] (through reference chain: com.cloudfiscal.integracao.blocoF.IntegracaoSCF600List[&amp;quot;COD_EMPRESA&amp;quot;])&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;description&lt;/b&gt; &lt;u&gt;The request sent by the client was syntactically incorrect (org.codehaus.jackson.map.exc.UnrecognizedPropertyException: Unrecognized field &amp;quot;COD_EMPRESA&amp;quot; (Class com.cloudfiscal.integracao.blocoF.IntegracaoSCF600List), not marked as ignorable
+ at [Source: org.apache.catalina.connector.CoyoteInputStream@30bddbf4; line: 1, column: 18] (through reference chain: com.cloudfiscal.integracao.blocoF.IntegracaoSCF600List[&amp;quot;COD_EMPRESA&amp;quot;])).&lt;/u&gt;&lt;/p&gt;&lt;HR size="1" noshade="noshade"&gt;&lt;h3&gt;JBoss Web/7.0.13.Final&lt;/h3&gt;&lt;/body&gt;&lt;/html&gt; 
+ </msg>
+<msg timestamp="20220317 13:29:31.996" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20220317 13:29:31.486" endtime="20220317 13:29:31.996"/>
+</kw>
+<msg timestamp="20220317 13:29:31.997" level="INFO">${response} = &lt;Response [400]&gt;</msg>
+<status status="PASS" starttime="20220317 13:29:31.485" endtime="20220317 13:29:31.997"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<msg timestamp="20220317 13:29:32.001" level="FAIL">Url: http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/contribuicaoRetidaFonte Expected status: 400 != 200</msg>
+<status status="FAIL" starttime="20220317 13:29:31.998" endtime="20220317 13:29:32.001"/>
+</kw>
+<status status="FAIL" starttime="20220317 13:29:31.481" endtime="20220317 13:29:32.002">Url: http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/contribuicaoRetidaFonte Expected status: 400 != 200</status>
 </test>
 <doc>Session route test suite</doc>
-<status status="FAIL" starttime="20220316 19:30:53.529" endtime="20220316 19:30:54.049"/>
+<status status="FAIL" starttime="20220317 13:29:30.505" endtime="20220317 13:29:32.005"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="0" fail="2" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="KNW">KNW</stat>
+<stat pass="0" fail="2" skip="0" id="s1" name="KNW">KNW</stat>
 </suite>
 </statistics>
 <errors>

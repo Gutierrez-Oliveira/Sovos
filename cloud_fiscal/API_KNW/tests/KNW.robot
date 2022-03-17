@@ -13,3 +13,15 @@ Consultar Empresas
     ${response}     GET Empresas       ${payload}
 
     Status Should Be        200                     ${response}
+
+KNW F600 Retida Fonte
+
+    ${payload}      Create Dictionary       X-Token=01032007       X-Cnpj=11272927000105
+
+    ${payload}      Factory User Fonte   knwF600
+
+    ${response}     POST Retida Fonte       ${payload}
+
+    Status Should Be        200                     ${response}
+
+

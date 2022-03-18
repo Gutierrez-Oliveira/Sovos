@@ -2,7 +2,6 @@
 Documentation               Base Test
 
 Library             RequestsLibrary
-Library             factories/body.py
 
 Resource            routes/EmpresasRoute.robot
 Resource            routes/RetidaFonte.robot

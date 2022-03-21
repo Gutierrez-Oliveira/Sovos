@@ -12,7 +12,7 @@ Consultar Empresas
 
     ${response}     GET Empresas       ${payload}
 
-    Status Should Be        200                     ${response}
+    Status Should Be        204                     ${response}
 
 KNW F600 Retida Fonte
 

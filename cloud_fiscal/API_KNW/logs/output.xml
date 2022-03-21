@@ -1,13 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.2 (Python 3.10.0 on win32)" generated="20220318 17:42:31.463" rpa="false" schemaversion="2">
+<robot generator="Robot 4.1.2 (Python 3.10.0 on win32)" generated="20220321 10:56:16.375" rpa="false" schemaversion="2">
 <suite id="s1" name="Knw" source="C:\Sovos\cloud_fiscal\cloud_fiscal\API_KNW\tests\knw.robot">
-<test id="s1-t1" name="KNW F600 Retida Fonte">
+<test id="s1-t1" name="Consultar Empresas">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220321 10:56:16.625" level="INFO">${payload} = {}</msg>
+<status status="PASS" starttime="20220321 10:56:16.625" endtime="20220321 10:56:16.625"/>
+</kw>
+<kw name="GET Empresas" library="EmpresasRoute">
+<var>${response}</var>
+<arg>${payload}</arg>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>X-Token=01032007</arg>
+<arg>X-Cnpj=11272927000105</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220321 10:56:16.626" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105'}</msg>
+<status status="PASS" starttime="20220321 10:56:16.625" endtime="20220321 10:56:16.626"/>
+</kw>
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${API_USERS}/dadosEmpresas</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20220321 10:56:16.977" level="INFO">GET Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/dadosEmpresas 
+ path_url=/SPED_WEB/api/knw/v2/dadosEmpresas 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220321 10:56:16.977" level="INFO">GET Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/dadosEmpresas 
+ status=204, reason=No Content 
+ headers={'Date': 'Mon, 21 Mar 2022 13:56:15 GMT', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=MAsYTzbRuXVHet3ILgNkQo3M6DrVXOoyCIEmly2gLAdcJSlraUt8VC2tZmC+dpo7gzXeQ4UVo5T5vHzdac9ygQ7uddkTr+0VqbX5F8Q9faU8+6DJ9bk3hav/BRBm; Expires=Mon, 28 Mar 2022 13:56:15 GMT; Path=/, AWSALBCORS=MAsYTzbRuXVHet3ILgNkQo3M6DrVXOoyCIEmly2gLAdcJSlraUt8VC2tZmC+dpo7gzXeQ4UVo5T5vHzdac9ygQ7uddkTr+0VqbX5F8Q9faU8+6DJ9bk3hav/BRBm; Expires=Mon, 28 Mar 2022 13:56:15 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
+ body=None 
+ </msg>
+<msg timestamp="20220321 10:56:16.977" level="INFO">${response} = &lt;Response [204]&gt;</msg>
+<status status="PASS" starttime="20220321 10:56:16.626" endtime="20220321 10:56:16.977"/>
+</kw>
+<msg timestamp="20220321 10:56:16.978" level="INFO">${response} = &lt;Response [204]&gt;</msg>
+<status status="PASS" starttime="20220321 10:56:16.625" endtime="20220321 10:56:16.978"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<msg timestamp="20220321 10:56:17.003" level="FAIL">Url: http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/dadosEmpresas Expected status: 204 != 200</msg>
+<status status="FAIL" starttime="20220321 10:56:16.978" endtime="20220321 10:56:17.003"/>
+</kw>
+<status status="FAIL" starttime="20220321 10:56:16.624" endtime="20220321 10:56:17.004">Url: http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/dadosEmpresas Expected status: 204 != 200</status>
+</test>
+<test id="s1-t2" name="KNW F600 Retida Fonte">
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${payload}</var>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220318 17:42:31.702" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20220318 17:42:31.702" endtime="20220318 17:42:31.703"/>
+<msg timestamp="20220321 10:56:17.005" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20220321 10:56:17.005" endtime="20220321 10:56:17.005"/>
 </kw>
 <kw name="POST Retida Fonte" library="RetidaFonte">
 <var>${response}</var>
@@ -18,8 +65,8 @@
 <arg>X-Cnpj=11272927000105</arg>
 <arg>content-type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220318 17:42:31.703" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
-<status status="PASS" starttime="20220318 17:42:31.703" endtime="20220318 17:42:31.703"/>
+<msg timestamp="20220321 10:56:17.006" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
+<status status="PASS" starttime="20220321 10:56:17.006" endtime="20220321 10:56:17.006"/>
 </kw>
 <kw name="POST" library="RequestsLibrary">
 <var>${response}</var>
@@ -29,41 +76,41 @@
 <arg>data={"objetos":[{"knwScF600":{"COD_EMPRESA":1,"COD_FILIAL":1,"ID_USUARIO_IMP":"NETSUITE NFSE ITG","chave_REGISTRO":"5952","DT_REFERENCIA":"2022-06-1T15:02:50.764Z","DM_NAT_RETENCAO":"1","DT_REC_RETENCAO":"2021-09-25T07:00:00.000Z","VL_BC_RETENCAO":100.00,"VL_RETIDO_FONT":1922.3600000000001,"CD_RECEITA":"5952","DM_NAT_RECEITA":"1","NR_CNPJ_FONTE":"02359572000455","VL_RETIDO_PIS":706.06,"VL_RETIDO_COFINS":3515.64,"DM_DECLARANTE":"0"}}]}</arg>
 <arg>headers=${ headers }</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20220318 17:42:32.062" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/contribuicaoRetidaFonte 
+<msg timestamp="20220321 10:56:17.618" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/contribuicaoRetidaFonte 
  path_url=/SPED_WEB/api/knw/v2/contribuicaoRetidaFonte 
  headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json', 'Content-Length': '434'} 
  body={"objetos":[{"knwScF600":{"COD_EMPRESA":1,"COD_FILIAL":1,"ID_USUARIO_IMP":"NETSUITE NFSE ITG","chave_REGISTRO":"5952","DT_REFERENCIA":"2022-06-1T15:02:50.764Z","DM_NAT_RETENCAO":"1","DT_REC_RETENCAO":"2021-09-25T07:00:00.000Z","VL_BC_RETENCAO":100.00,"VL_RETIDO_FONT":1922.3600000000001,"CD_RECEITA":"5952","DM_NAT_RECEITA":"1","NR_CNPJ_FONTE":"02359572000455","VL_RETIDO_PIS":706.06,"VL_RETIDO_COFINS":3515.64,"DM_DECLARANTE":"0"}}]} 
  </msg>
-<msg timestamp="20220318 17:42:32.062" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/contribuicaoRetidaFonte 
+<msg timestamp="20220321 10:56:17.619" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/contribuicaoRetidaFonte 
  status=200, reason=OK 
- headers={'Date': 'Fri, 18 Mar 2022 20:42:31 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=NVpYapUyqHTbAEIYbuvi7DUukBNT7BCui8eKiuUTqC8SHERPi5o5NP2N/icO2v2h98nPQ8LgGkGFEDSU/PntbXdRfDMEr+nVsYihLvQwK6bAtikjxBNnUFKCN1Ph; Expires=Fri, 25 Mar 2022 20:42:31 GMT; Path=/, AWSALBCORS=NVpYapUyqHTbAEIYbuvi7DUukBNT7BCui8eKiuUTqC8SHERPi5o5NP2N/icO2v2h98nPQ8LgGkGFEDSU/PntbXdRfDMEr+nVsYihLvQwK6bAtikjxBNnUFKCN1Ph; Expires=Fri, 25 Mar 2022 20:42:31 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
+ headers={'Date': 'Mon, 21 Mar 2022 13:56:15 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=5QLGj9Aw4OACfIc4yBVEryN8+Yg2iSB0+mp17+1t7X1h+GpAp/ehjNR+I4irQlAurWdo2xoQorILzzOyPz8bkA8lcVFWTD3l4Iv61J4CSo39q9CHZ5X+tT0KmMFW; Expires=Mon, 28 Mar 2022 13:56:15 GMT; Path=/, AWSALBCORS=5QLGj9Aw4OACfIc4yBVEryN8+Yg2iSB0+mp17+1t7X1h+GpAp/ehjNR+I4irQlAurWdo2xoQorILzzOyPz8bkA8lcVFWTD3l4Iv61J4CSo39q9CHZ5X+tT0KmMFW; Expires=Mon, 28 Mar 2022 13:56:15 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
  body={"sucesso":true,"erro":null,"mensagens":null,"payload":null} 
  </msg>
-<msg timestamp="20220318 17:42:32.062" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220318 17:42:31.703" endtime="20220318 17:42:32.063"/>
+<msg timestamp="20220321 10:56:17.619" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220321 10:56:17.006" endtime="20220321 10:56:17.619"/>
 </kw>
-<msg timestamp="20220318 17:42:32.063" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220318 17:42:31.703" endtime="20220318 17:42:32.063"/>
+<msg timestamp="20220321 10:56:17.619" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220321 10:56:17.005" endtime="20220321 10:56:17.619"/>
 </kw>
 <kw name="Status Should Be" library="RequestsLibrary">
 <arg>200</arg>
 <arg>${response}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" starttime="20220318 17:42:32.063" endtime="20220318 17:42:32.064"/>
+<status status="PASS" starttime="20220321 10:56:17.619" endtime="20220321 10:56:17.620"/>
 </kw>
-<status status="PASS" starttime="20220318 17:42:31.702" endtime="20220318 17:42:32.064"/>
+<status status="PASS" starttime="20220321 10:56:17.004" endtime="20220321 10:56:17.620"/>
 </test>
 <doc>Session route test suite</doc>
-<status status="PASS" starttime="20220318 17:42:31.468" endtime="20220318 17:42:32.065"/>
+<status status="FAIL" starttime="20220321 10:56:16.379" endtime="20220321 10:56:17.621"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Knw">Knw</stat>
+<stat pass="1" fail="1" skip="0" id="s1" name="Knw">Knw</stat>
 </suite>
 </statistics>
 <errors>

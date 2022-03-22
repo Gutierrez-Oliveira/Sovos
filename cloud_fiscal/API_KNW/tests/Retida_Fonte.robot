@@ -6,13 +6,6 @@ Documentation           Session route test suite
 Resource                ${EXECDIR}/resources/Base.robot
 
 *Test Cases*
-Consultar Empresas
-
-    ${payload}      Create Dictionary               #Content-Type=application/json
-
-    ${response}     GET Empresas       ${payload}
-
-    Status Should Be        204                     ${response}
 
 KNW F600 Retida Fonte
 

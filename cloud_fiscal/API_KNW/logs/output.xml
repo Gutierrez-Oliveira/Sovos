@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <robot generator="Robot 4.1.2 (Python 3.10.0 on win32)" generated="20220323 12:16:22.366" rpa="false" schemaversion="2">
 <suite id="s1" name="Tests" source="C:\Sovos\cloud_fiscal\API_KNW\tests">
 <suite id="s1-s1" name="Ativo Imobilizado Suite" source="C:\Sovos\cloud_fiscal\API_KNW\tests\Ativo_Imobilizado_Suite.robot">
@@ -9,6 +10,16 @@
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
 <msg timestamp="20220323 12:16:22.755" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
 <status status="PASS" starttime="20220323 12:16:22.755" endtime="20220323 12:16:22.755"/>
+=======
+<robot generator="Robot 4.1.2 (Python 3.10.0 on win32)" generated="20220321 16:56:55.683" rpa="false" schemaversion="2">
+<suite id="s1" name="Knw" source="C:\Sovos\cloud_fiscal\cloud_fiscal\API_KNW\tests\knw.robot">
+<test id="s1-t1" name="Consultar Empresas">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220321 16:56:55.932" level="INFO">${payload} = {}</msg>
+<status status="PASS" starttime="20220321 16:56:55.932" endtime="20220321 16:56:55.932"/>
+>>>>>>> 1408b54774b1dc9bbd1e1eda362e3103ba79e848
 </kw>
 <kw name="POST Ativo Imobilizado" library="Bens_Ativo_Imobilizado">
 <var>${response}</var>
@@ -17,6 +28,7 @@
 <var>${headers}</var>
 <arg>X-Token=01032007</arg>
 <arg>X-Cnpj=11272927000105</arg>
+<<<<<<< HEAD
 <arg>content-type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
 <msg timestamp="20220323 12:16:22.757" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
@@ -45,14 +57,46 @@
 </kw>
 <msg timestamp="20220323 12:16:23.491" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <status status="PASS" starttime="20220323 12:16:22.756" endtime="20220323 12:16:23.491"/>
+=======
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220321 16:56:55.933" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105'}</msg>
+<status status="PASS" starttime="20220321 16:56:55.933" endtime="20220321 16:56:55.933"/>
+</kw>
+<kw name="GET" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${API_USERS}/dadosEmpresas</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20220321 16:56:56.486" level="INFO">GET Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/dadosEmpresas 
+ path_url=/SPED_WEB/api/knw/v2/dadosEmpresas 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20220321 16:56:56.487" level="INFO">GET Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/dadosEmpresas 
+ status=204, reason=No Content 
+ headers={'Date': 'Mon, 21 Mar 2022 19:56:54 GMT', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=Rn8UkED5ESizGJUr8ACWkBBio8wf0T4+z0JElyzlJXZ0KlDkKbFQvpGCMk1SIaJxYx2svkzXedIei3Pu8gLTqPnB0GDkUZLbp6um3FUAAosXNbydxVtm1j1udZ3v; Expires=Mon, 28 Mar 2022 19:56:54 GMT; Path=/, AWSALBCORS=Rn8UkED5ESizGJUr8ACWkBBio8wf0T4+z0JElyzlJXZ0KlDkKbFQvpGCMk1SIaJxYx2svkzXedIei3Pu8gLTqPnB0GDkUZLbp6um3FUAAosXNbydxVtm1j1udZ3v; Expires=Mon, 28 Mar 2022 19:56:54 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
+ body=None 
+ </msg>
+<msg timestamp="20220321 16:56:56.487" level="INFO">${response} = &lt;Response [204]&gt;</msg>
+<status status="PASS" starttime="20220321 16:56:55.933" endtime="20220321 16:56:56.487"/>
+</kw>
+<msg timestamp="20220321 16:56:56.487" level="INFO">${response} = &lt;Response [204]&gt;</msg>
+<status status="PASS" starttime="20220321 16:56:55.932" endtime="20220321 16:56:56.487"/>
+>>>>>>> 1408b54774b1dc9bbd1e1eda362e3103ba79e848
 </kw>
 <kw name="Status Should Be" library="RequestsLibrary">
 <arg>200</arg>
 <arg>${response}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
+<<<<<<< HEAD
 <status status="PASS" starttime="20220323 12:16:23.492" endtime="20220323 12:16:23.493"/>
 </kw>
 <status status="PASS" starttime="20220323 12:16:22.754" endtime="20220323 12:16:23.494"/>
+=======
+<msg timestamp="20220321 16:56:56.493" level="FAIL">Url: http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/dadosEmpresas Expected status: 204 != 200</msg>
+<status status="FAIL" starttime="20220321 16:56:56.487" endtime="20220321 16:56:56.493"/>
+</kw>
+<status status="FAIL" starttime="20220321 16:56:55.931" endtime="20220321 16:56:56.494">Url: http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/dadosEmpresas Expected status: 204 != 200</status>
+>>>>>>> 1408b54774b1dc9bbd1e1eda362e3103ba79e848
 </test>
 <doc>Suite de testes Bens Incorporados Ativos Imobilizados</doc>
 <status status="PASS" starttime="20220323 12:16:22.418" endtime="20220323 12:16:23.496"/>
@@ -62,6 +106,7 @@
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${payload}</var>
 <arg>Content-Type=application/json</arg>
+<<<<<<< HEAD
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
 <msg timestamp="20220323 12:16:23.545" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
 <status status="PASS" starttime="20220323 12:16:23.545" endtime="20220323 12:16:23.545"/>
@@ -171,6 +216,11 @@
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
 <msg timestamp="20220323 12:16:25.075" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
 <status status="PASS" starttime="20220323 12:16:25.075" endtime="20220323 12:16:25.075"/>
+=======
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220321 16:56:56.496" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20220321 16:56:56.496" endtime="20220321 16:56:56.496"/>
+>>>>>>> 1408b54774b1dc9bbd1e1eda362e3103ba79e848
 </kw>
 <kw name="POST Controle Creditos" library="Controle_Creditos">
 <var>${response}</var>
@@ -181,6 +231,7 @@
 <arg>X-Cnpj=11272927000105</arg>
 <arg>content-type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<<<<<<< HEAD
 <msg timestamp="20220323 12:16:25.076" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
 <status status="PASS" starttime="20220323 12:16:25.076" endtime="20220323 12:16:25.076"/>
 </kw>
@@ -675,6 +726,10 @@
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
 <msg timestamp="20220323 12:16:32.356" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
 <status status="PASS" starttime="20220323 12:16:32.356" endtime="20220323 12:16:32.356"/>
+=======
+<msg timestamp="20220321 16:56:56.497" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
+<status status="PASS" starttime="20220321 16:56:56.497" endtime="20220321 16:56:56.497"/>
+>>>>>>> 1408b54774b1dc9bbd1e1eda362e3103ba79e848
 </kw>
 <kw name="POST" library="RequestsLibrary">
 <var>${response}</var>
@@ -684,11 +739,16 @@
 <arg>data={"objetos":[{"knwScF600":{"COD_EMPRESA":1,"COD_FILIAL":1,"ID_USUARIO_IMP":"NETSUITE NFSE ITG","chave_REGISTRO":"5952","DT_REFERENCIA":"2022-06-1T15:02:50.764Z","DM_NAT_RETENCAO":"1","DT_REC_RETENCAO":"2021-09-25T07:00:00.000Z","VL_BC_RETENCAO":100.00,"VL_RETIDO_FONT":1922.3600000000001,"CD_RECEITA":"5952","DM_NAT_RECEITA":"1","NR_CNPJ_FONTE":"02359572000455","VL_RETIDO_PIS":706.06,"VL_RETIDO_COFINS":3515.64,"DM_DECLARANTE":"0"}}]}</arg>
 <arg>headers=${ headers }</arg>
 <doc>Sends a POST request.</doc>
+<<<<<<< HEAD
 <msg timestamp="20220323 12:16:33.029" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/contribuicaoRetidaFonte 
+=======
+<msg timestamp="20220321 16:56:57.070" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/contribuicaoRetidaFonte 
+>>>>>>> 1408b54774b1dc9bbd1e1eda362e3103ba79e848
  path_url=/SPED_WEB/api/knw/v2/contribuicaoRetidaFonte 
  headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json', 'Content-Length': '434'} 
  body={"objetos":[{"knwScF600":{"COD_EMPRESA":1,"COD_FILIAL":1,"ID_USUARIO_IMP":"NETSUITE NFSE ITG","chave_REGISTRO":"5952","DT_REFERENCIA":"2022-06-1T15:02:50.764Z","DM_NAT_RETENCAO":"1","DT_REC_RETENCAO":"2021-09-25T07:00:00.000Z","VL_BC_RETENCAO":100.00,"VL_RETIDO_FONT":1922.3600000000001,"CD_RECEITA":"5952","DM_NAT_RECEITA":"1","NR_CNPJ_FONTE":"02359572000455","VL_RETIDO_PIS":706.06,"VL_RETIDO_COFINS":3515.64,"DM_DECLARANTE":"0"}}]} 
  </msg>
+<<<<<<< HEAD
 <msg timestamp="20220323 12:16:33.029" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/contribuicaoRetidaFonte 
  status=200, reason=OK 
  headers={'Date': 'Wed, 23 Mar 2022 15:16:32 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=kISIS67Sy+5fdXjL8RUndjmc8w/EYef0UVSIVXPyIfp0n/nsVrRq6IdQ7IyTWsBFaoz+DONu7f3uFOd0rWZp+T6eTsaNuefyUEOzH3RymxwUbOahC/Uax4Gyutdy; Expires=Wed, 30 Mar 2022 15:16:32 GMT; Path=/, AWSALBCORS=kISIS67Sy+5fdXjL8RUndjmc8w/EYef0UVSIVXPyIfp0n/nsVrRq6IdQ7IyTWsBFaoz+DONu7f3uFOd0rWZp+T6eTsaNuefyUEOzH3RymxwUbOahC/Uax4Gyutdy; Expires=Wed, 30 Mar 2022 15:16:32 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
@@ -699,11 +759,24 @@
 </kw>
 <msg timestamp="20220323 12:16:33.030" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <status status="PASS" starttime="20220323 12:16:32.355" endtime="20220323 12:16:33.030"/>
+=======
+<msg timestamp="20220321 16:56:57.070" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/contribuicaoRetidaFonte 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 21 Mar 2022 19:56:55 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=zPNmTuT9P8xnex6LgJXHaHUT0K47ZRm8hJa0P7mjNVruc5OREPZn8NGxnNV5d17OnE7DO8eFbeP9V9RSmzADoekbzN7cTerwQ0NmrIRpBLvPbY6ellOX5gqJN3ME; Expires=Mon, 28 Mar 2022 19:56:55 GMT; Path=/, AWSALBCORS=zPNmTuT9P8xnex6LgJXHaHUT0K47ZRm8hJa0P7mjNVruc5OREPZn8NGxnNV5d17OnE7DO8eFbeP9V9RSmzADoekbzN7cTerwQ0NmrIRpBLvPbY6ellOX5gqJN3ME; Expires=Mon, 28 Mar 2022 19:56:55 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
+ body={"sucesso":true,"erro":null,"mensagens":null,"payload":null} 
+ </msg>
+<msg timestamp="20220321 16:56:57.070" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220321 16:56:56.497" endtime="20220321 16:56:57.070"/>
+</kw>
+<msg timestamp="20220321 16:56:57.070" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220321 16:56:56.496" endtime="20220321 16:56:57.070"/>
+>>>>>>> 1408b54774b1dc9bbd1e1eda362e3103ba79e848
 </kw>
 <kw name="Status Should Be" library="RequestsLibrary">
 <arg>200</arg>
 <arg>${response}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
+<<<<<<< HEAD
 <status status="PASS" starttime="20220323 12:16:33.031" endtime="20220323 12:16:33.032"/>
 </kw>
 <status status="PASS" starttime="20220323 12:16:32.352" endtime="20220323 12:16:33.032"/>
@@ -716,10 +789,23 @@
 <statistics>
 <total>
 <stat pass="13" fail="0" skip="0">All Tests</stat>
+=======
+<status status="PASS" starttime="20220321 16:56:57.071" endtime="20220321 16:56:57.071"/>
+</kw>
+<status status="PASS" starttime="20220321 16:56:56.495" endtime="20220321 16:56:57.071"/>
+</test>
+<doc>Session route test suite</doc>
+<status status="FAIL" starttime="20220321 16:56:55.687" endtime="20220321 16:56:57.073"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
+>>>>>>> 1408b54774b1dc9bbd1e1eda362e3103ba79e848
 </total>
 <tag>
 </tag>
 <suite>
+<<<<<<< HEAD
 <stat pass="13" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
 <stat pass="1" fail="0" skip="0" id="s1-s1" name="Ativo Imobilizado Suite">Tests.Ativo Imobilizado Suite</stat>
 <stat pass="1" fail="0" skip="0" id="s1-s2" name="Atualizacao NF Suite">Tests.Atualizacao NF Suite</stat>
@@ -731,6 +817,9 @@
 <stat pass="4" fail="0" skip="0" id="s1-s8" name="Import BlocoM Suite">Tests.Import BlocoM Suite</stat>
 <stat pass="1" fail="0" skip="0" id="s1-s9" name="Import Geral Suite">Tests.Import Geral Suite</stat>
 <stat pass="1" fail="0" skip="0" id="s1-s10" name="Retida Fonte Suite">Tests.Retida Fonte Suite</stat>
+=======
+<stat pass="1" fail="1" skip="0" id="s1" name="Knw">Knw</stat>
+>>>>>>> 1408b54774b1dc9bbd1e1eda362e3103ba79e848
 </suite>
 </statistics>
 <errors>

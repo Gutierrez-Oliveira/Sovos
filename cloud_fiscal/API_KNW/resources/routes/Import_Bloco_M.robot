@@ -1,6 +1,6 @@
 *Settings*
 Documentation               Sessions route
-Resource                    
+                    
 
 *Keywords*
 POST M110
@@ -10,7 +10,7 @@ POST M110
 
     ${response}     POST       ${API_USERS}/blocoM/M110       json=${payload}       expected_status=any
 
-    ...                          data="json aqui"
+    ...                          data="{"objetos":[{"knwM110":{"dt_REFERENCIA":"2020-01-20","cod_EMPRESA":1,"cod_FILIAL":1,"id_USUARIO_IMP":"4523679100091","dt_IMPORTACAO":"2022-03-16","aliq_PIS":2,"nr_PROCESSO":"333","vl_ALIQ_PIS":2,"vl_AJUSTE":2,"cd_438":"1","ds_AJUSTE":"32","dt_AJUSTE":"2022-03-16","cd_436":"1","dm_AJUSTE":"1"}}]}"
     ...                          headers=${ headers }
 
     [return]        ${response}

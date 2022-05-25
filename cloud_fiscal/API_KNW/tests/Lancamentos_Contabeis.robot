@@ -7,14 +7,12 @@ Resource                ${EXECDIR}/resources/Base.robot
 
 *Test Cases*
 
-KNW F600 Retida Fonte
+POST Lancamento Contabeis
 
     ${payload}      Create Dictionary               Content-Type=application/json
 
-    ${response}     POST Retida Fonte       ${payload}
+    ${response}     POST Lancamento Contabeis      ${payload}
 
-    Status Should Be        200                     ${response}
+    Status Should Be        200                    ${response}
 
     Should Be Equal         ${response.json()}[sucesso]    ${true}
-
-

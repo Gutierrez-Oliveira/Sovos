@@ -11,3 +11,5 @@ Consultar Empresas
     ${response}     GET Empresas       ${payload}
 
     Status Should Be        204                     ${response}
+
+    Should Be Equal         ${response.json()}[sucesso]    ${true}

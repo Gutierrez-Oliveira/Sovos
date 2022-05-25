@@ -1,6 +1,6 @@
 *Settings*
 Documentation               Sessions route
-Resource                ${EXECDIR}/resources/Base.robot
+
 
 *Keywords*
 POST Import NF Proprias

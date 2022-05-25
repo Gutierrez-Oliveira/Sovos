@@ -5,7 +5,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="Robot Framework 4.1.2 (Python 3.10.0 on win32)" name="Generator">
+<meta content="Robot Framework 5.0 (Python 3.10.0 on win32)" name="Generator">
 <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKcAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAqAAAAAAAAAAAAAAAAAAAALIAAAD/AAAA4AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA4AAAAP8AAACxAAAAAAAAAKYAAAD/AAAAuwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/AAAA/wAAAKkAAAD6AAAAzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN8AAAD/AAAA+gAAAMMAAAAAAAAAAgAAAGsAAABrAAAAawAAAGsAAABrAAAAawAAAGsAAABrAAAADAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAIsAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAANEAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAAAAAAAAMgAAADIAAAAyAAAAMgAAADIAAAAyAAAAMgAAADIAAAAFAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAADwAAAB8AAAAAAAAAGAAAABcAAAAAAAAAH8AAABKAAAAAAAAAAAAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAADCAAAA/wAAACkAAADqAAAA4QAAAAAAAAD7AAAA/wAAALAAAAAGAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAIwAAAP4AAAD/AAAA/wAAAGAAAAAAAAAAAAAAAMkAAAD/AAAAigAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAAAAAAAIAAAAcAAAABkAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAA2gAAAP8AAAD7AAAAywAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN4AAAD/AAAAqwAAAP8AAACvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALIAAAD/AAAAsgAAAAAAAAC5AAAA/wAAAMoAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMkAAAD/AAAAvAAAAAAAAAAAAAAAAAAAAKwAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAArQAAAAAAAAAAwAMAAIABAAAf+AAAP/wAAD/8AAAgBAAAP/wAAD/8AAA//AAAJIwAADHEAAA//AAAP/wAAB/4AACAAQAAwAMAAA==">
 <style media="all" type="text/css">
 /* Generic and misc styles */
@@ -764,6 +764,7 @@ window.model = (function () {
     }
     function Keyword(data) {
         var kw = createModelObject(data);
+        var flatTypes = ['RETURN', 'BREAK', 'CONTINUE'];
         kw.libname = data.libname;
         kw.fullName = (kw.libname ? kw.libname + '.' : '') + kw.name;
         kw.type = data.type;
@@ -1148,8 +1149,8 @@ window.testdata = function () {
     var _statistics = null;
     var LEVELS = ['TRACE', 'DEBUG', 'INFO', 'WARN', 'ERROR', 'FAIL', 'SKIP'];
     var STATUSES = ['FAIL', 'PASS', 'SKIP', 'NOT RUN'];
-    var KEYWORD_TYPES = ['KEYWORD', 'SETUP', 'TEARDOWN', 'FOR', 'VAR', 'IF', 'ELSE IF', 'ELSE'];
-    var MESSAGE_TYPE = 8;
+    var KEYWORD_TYPES = ['KEYWORD', 'SETUP', 'TEARDOWN', 'FOR', 'ITERATION', 'IF', 'ELSE IF', 'ELSE', 'RETURN',
+                         'TRY', 'EXCEPT', 'FINALLY', 'WHILE', 'CONTINUE', 'BREAK'];
     function addElement(elem) {
         if (!elem.id)
             elem.id = uniqueId();
@@ -1170,10 +1171,10 @@ window.testdata = function () {
                 elapsed];
     }
     function createMessage(element, strings) {
-        return model.Message(LEVELS[element[2]],
-                             util.timestamp(element[1]),
-                             strings.get(element[3]),
-                             strings.get(element[4]));
+        return model.Message(LEVELS[element[1]],
+                             util.timestamp(element[0]),
+                             strings.get(element[2]),
+                             strings.get(element[3]));
     }
     function parseStatus(stats) {
         return STATUSES[stats[0]];
@@ -1184,7 +1185,7 @@ window.testdata = function () {
         };
     }
     function createBodyItem(parent, element, strings, index) {
-        if (element[0] == MESSAGE_TYPE)
+        if (element.length < 5)
             return createMessage(element, strings);
         var messages = util.filter(parent.children(), function (child) {
             return child.type == 'message';
@@ -1628,39 +1629,22 @@ storage = function () {
 window.output = {};
 </script>
 <script type="text/javascript">
-<<<<<<< HEAD
-window.output["suite"] = [1,2,3,0,[],[1,0,10666],[[4,5,6,7,[],[1,45,1078],[],[[8,0,0,[],[1,381,740],[]]],[],[1,1,0,0]],[9,10,11,12,[],[1,1126,816],[],[[8,0,0,[],[1,1171,769],[]]],[],[1,1,0,0]],[13,14,15,16,[],[1,1946,707],[],[[17,0,0,[],[1,1992,659],[]]],[],[1,1,0,0]],[18,19,20,21,[],[1,2657,821],[],[[8,0,0,[],[1,2701,775],[]]],[],[1,1,0,0]],[22,23,24,25,[],[1,3482,815],[],[[26,0,0,[],[1,3529,766],[]]],[],[1,1,0,0]],[27,28,29,30,[],[1,4300,707],[],[[8,0,0,[],[1,4345,660],[]]],[],[1,1,0,0]],[31,32,33,34,[],[1,5010,824],[],[[35,0,0,[],[1,5046,785],[]]],[],[1,1,0,0]],[36,37,38,39,[],[1,5837,3376],[],[[40,0,0,[],[1,5882,1075],[]],[41,0,0,[],[1,6959,817],[]],[42,0,0,[],[1,7778,818],[]],[43,0,0,[],[1,8598,612],[]]],[],[4,4,0,0]],[44,45,46,47,[],[1,9217,715],[],[[48,0,0,[],[1,9261,668],[]]],[],[1,1,0,0]],[49,50,51,52,[],[1,9935,727],[],[[53,0,0,[],[1,9979,680],[]]],[],[1,1,0,0]]],[],[],[13,13,0,0]];
-=======
-window.output["suite"] = [1,2,3,4,[],[0,0,1386],[],[[5,0,0,[],[0,244,563,6],[]],[7,0,0,[],[1,808,576],[]]],[],[2,1,1,0]];
->>>>>>> 1408b54774b1dc9bbd1e1eda362e3103ba79e848
+window.output["suite"] = [1,2,3,0,[],[0,0,8250],[[4,5,6,7,[],[1,32,1226],[],[[8,0,0,[],[1,366,891],[]]],[],[1,1,0,0]],[9,10,11,12,[],[0,1259,26],[],[[13,0,0,[],[0,1280,4,14],[]]],[],[1,0,1,0]],[15,16,17,18,[],[1,1286,397],[],[[15,0,0,[],[1,1306,376],[]]],[],[1,1,0,0]],[19,20,21,22,[],[1,1684,534],[],[[8,0,0,[],[1,1705,513],[]]],[],[1,1,0,0]],[23,24,25,26,[],[1,2220,1441],[],[[27,0,0,[],[1,2241,1419],[]]],[],[1,1,0,0]],[28,29,30,31,[],[1,3663,452],[],[[8,0,0,[],[1,3684,430],[]]],[],[1,1,0,0]],[32,33,34,35,[],[1,4116,434],[],[[36,0,0,[],[1,4136,413],[]]],[],[1,1,0,0]],[37,38,39,40,[],[1,4552,2690],[],[[41,0,0,[],[1,4573,1410],[]],[42,0,0,[],[1,5984,393],[]],[43,0,0,[],[1,6378,463],[]],[44,0,0,[],[1,6842,399],[]]],[],[4,4,0,0]],[45,46,47,48,[],[1,7244,525],[],[[49,0,0,[],[1,7264,503],[]]],[],[1,1,0,0]],[50,51,52,53,[],[1,7770,477],[],[[54,0,0,[],[1,7792,454],[]]],[],[1,1,0,0]]],[],[],[13,12,1,0]];
 </script>
 <script type="text/javascript">
 window.output["strings"] = [];
 </script>
 <script type="text/javascript">
-<<<<<<< HEAD
-window.output["strings"] = window.output["strings"].concat(["*","*Tests","*C:\\Sovos\\cloud_fiscal\\API_KNW\\tests","*../tests","*Ativo Imobilizado Suite","*C:\\Sovos\\cloud_fiscal\\API_KNW\\tests\\Ativo_Imobilizado_Suite.robot","*../tests/Ativo_Imobilizado_Suite.robot","*<p>Suite de testes Bens Incorporados Ativos Imobilizados\x3c/p>","*Atualizar NF C100","*Atualizacao NF Suite","*C:\\Sovos\\cloud_fiscal\\API_KNW\\tests\\Atualizacao_NF_Suite.robot","*../tests/Atualizacao_NF_Suite.robot","*<p>Suite de testes atualização das NFs\x3c/p>","*Consult Dados Emp Suite","*C:\\Sovos\\cloud_fiscal\\API_KNW\\tests\\Consult_Dados_Emp_Suite.robot","*../tests/Consult_Dados_Emp_Suite.robot","*<p>Suite de testes de API de Consulta de dados da Empresa\x3c/p>","*Consultar Empresas","*Controle Creditos Suite","*C:\\Sovos\\cloud_fiscal\\API_KNW\\tests\\Controle_Creditos_Suite.robot","*../tests/Controle_Creditos_Suite.robot","*<p>Suite de testes Contorle de Creditos\x3c/p>","*Doc Gerador Credito Suite","*C:\\Sovos\\cloud_fiscal\\API_KNW\\tests\\Doc_Gerador_Credito_Suite.robot","*../tests/Doc_Gerador_Credito_Suite.robot","*<p>Suite de testes Gerador de Credito\x3c/p>","*Gerador de Credito","*Estoque Escriturado Suite","*C:\\Sovos\\cloud_fiscal\\API_KNW\\tests\\Estoque_Escriturado_Suite.robot","*../tests/Estoque_Escriturado_Suite.robot","*<p>Suite de testes Estoque Escriturado\x3c/p>","*Exportacoes Suite","*C:\\Sovos\\cloud_fiscal\\API_KNW\\tests\\Exportacoes_Suite.robot","*../tests/Exportacoes_Suite.robot","*<p>Suite de testes Exportações\x3c/p>","*Exportacoes","*Import BlocoM Suite","*C:\\Sovos\\cloud_fiscal\\API_KNW\\tests\\Import_BlocoM_Suite.robot","*../tests/Import_BlocoM_Suite.robot","*<p>Suite de testes de API's de importação do Bloco M\x3c/p>","*Import Bloco M110","*Import Bloco M410","*Import Bloco M510","*Import Bloco M810","*Import Geral Suite","*C:\\Sovos\\cloud_fiscal\\API_KNW\\tests\\Import_Geral_Suite.robot","*../tests/Import_Geral_Suite.robot","*<p>Suite de testes de API's de importações\x3c/p>","*Import Pessoas","*Retida Fonte Suite","*C:\\Sovos\\cloud_fiscal\\API_KNW\\tests\\Retida_Fonte_Suite.robot","*../tests/Retida_Fonte_Suite.robot","*<p>Session route test suite\x3c/p>","*KNW F600 Retida Fonte"]);
+window.output["strings"] = window.output["strings"].concat(["*","*Tests","*C:\\Sovos\\cloud_fiscal\\API_KNW\\tests","*../tests","*Ativo Imobilizado","*C:\\Sovos\\cloud_fiscal\\API_KNW\\tests\\Ativo_Imobilizado.robot","*../tests/Ativo_Imobilizado.robot","*<p>Suite de testes Bens Incorporados Ativos Imobilizados\x3c/p>","*Atualizar NF C100","*Atualizacao NF Suite","*C:\\Sovos\\cloud_fiscal\\API_KNW\\tests\\Atualizacao_NF_Suite.robot","*../tests/Atualizacao_NF_Suite.robot","*<p>Suite de testes atualização das NFs\x3c/p>","*Atualizacao NF C100","*Keyword 'RequestsLibrary.POST' got positional argument after named arguments.","*Consultar Empresas","*C:\\Sovos\\cloud_fiscal\\API_KNW\\tests\\Consultar_Empresas.robot","*../tests/Consultar_Empresas.robot","*<p>Consulta de dados da Empresa\x3c/p>","*Controle Creditos Suite","*C:\\Sovos\\cloud_fiscal\\API_KNW\\tests\\Controle_Creditos_Suite.robot","*../tests/Controle_Creditos_Suite.robot","*<p>Suite de testes Contorle de Creditos\x3c/p>","*Doc Gerador Credito Suite","*C:\\Sovos\\cloud_fiscal\\API_KNW\\tests\\Doc_Gerador_Credito_Suite.robot","*../tests/Doc_Gerador_Credito_Suite.robot","*<p>Suite de testes Gerador de Credito\x3c/p>","*Gerador de Credito","*Estoque Escriturado Suite","*C:\\Sovos\\cloud_fiscal\\API_KNW\\tests\\Estoque_Escriturado_Suite.robot","*../tests/Estoque_Escriturado_Suite.robot","*<p>Suite de testes Estoque Escriturado\x3c/p>","*Exportacoes Suite","*C:\\Sovos\\cloud_fiscal\\API_KNW\\tests\\Exportacoes_Suite.robot","*../tests/Exportacoes_Suite.robot","*<p>Suite de testes Exportações\x3c/p>","*Exportacoes","*Import BlocoM Suite","*C:\\Sovos\\cloud_fiscal\\API_KNW\\tests\\Import_BlocoM_Suite.robot","*../tests/Import_BlocoM_Suite.robot","*<p>Suite de testes de API's de importação do Bloco M\x3c/p>","*Import Bloco M110","*Import Bloco M410","*Import Bloco M510","*Import Bloco M810","*Import Geral Suite","*C:\\Sovos\\cloud_fiscal\\API_KNW\\tests\\Import_Geral_Suite.robot","*../tests/Import_Geral_Suite.robot","*<p>Suite de testes de API's de importações\x3c/p>","*Import Pessoas","*Retida Fonte Suite","*C:\\Sovos\\cloud_fiscal\\API_KNW\\tests\\Retida_Fonte_Suite.robot","*../tests/Retida_Fonte_Suite.robot","*<p>Session route test suite\x3c/p>","*KNW F600 Retida Fonte"]);
 </script>
 <script type="text/javascript">
-window.output["stats"] = [[{"elapsed":"00:00:10","fail":0,"label":"All Tests","pass":13,"skip":0}],[],[{"elapsed":"00:00:11","fail":0,"id":"s1","label":"Tests","name":"Tests","pass":13,"skip":0},{"elapsed":"00:00:01","fail":0,"id":"s1-s1","label":"Tests.Ativo Imobilizado Suite","name":"Ativo Imobilizado Suite","pass":1,"skip":0},{"elapsed":"00:00:01","fail":0,"id":"s1-s2","label":"Tests.Atualizacao NF Suite","name":"Atualizacao NF Suite","pass":1,"skip":0},{"elapsed":"00:00:01","fail":0,"id":"s1-s3","label":"Tests.Consult Dados Emp Suite","name":"Consult Dados Emp Suite","pass":1,"skip":0},{"elapsed":"00:00:01","fail":0,"id":"s1-s4","label":"Tests.Controle Creditos Suite","name":"Controle Creditos Suite","pass":1,"skip":0},{"elapsed":"00:00:01","fail":0,"id":"s1-s5","label":"Tests.Doc Gerador Credito Suite","name":"Doc Gerador Credito Suite","pass":1,"skip":0},{"elapsed":"00:00:01","fail":0,"id":"s1-s6","label":"Tests.Estoque Escriturado Suite","name":"Estoque Escriturado Suite","pass":1,"skip":0},{"elapsed":"00:00:01","fail":0,"id":"s1-s7","label":"Tests.Exportacoes Suite","name":"Exportacoes Suite","pass":1,"skip":0},{"elapsed":"00:00:03","fail":0,"id":"s1-s8","label":"Tests.Import BlocoM Suite","name":"Import BlocoM Suite","pass":4,"skip":0},{"elapsed":"00:00:01","fail":0,"id":"s1-s9","label":"Tests.Import Geral Suite","name":"Import Geral Suite","pass":1,"skip":0},{"elapsed":"00:00:01","fail":0,"id":"s1-s10","label":"Tests.Retida Fonte Suite","name":"Retida Fonte Suite","pass":1,"skip":0}]];
+window.output["stats"] = [[{"elapsed":"00:00:08","fail":1,"label":"All Tests","pass":12,"skip":0}],[],[{"elapsed":"00:00:08","fail":1,"id":"s1","label":"Tests","name":"Tests","pass":12,"skip":0},{"elapsed":"00:00:01","fail":0,"id":"s1-s1","label":"Tests.Ativo Imobilizado","name":"Ativo Imobilizado","pass":1,"skip":0},{"elapsed":"00:00:00","fail":1,"id":"s1-s2","label":"Tests.Atualizacao NF Suite","name":"Atualizacao NF Suite","pass":0,"skip":0},{"elapsed":"00:00:00","fail":0,"id":"s1-s3","label":"Tests.Consultar Empresas","name":"Consultar Empresas","pass":1,"skip":0},{"elapsed":"00:00:01","fail":0,"id":"s1-s4","label":"Tests.Controle Creditos Suite","name":"Controle Creditos Suite","pass":1,"skip":0},{"elapsed":"00:00:01","fail":0,"id":"s1-s5","label":"Tests.Doc Gerador Credito Suite","name":"Doc Gerador Credito Suite","pass":1,"skip":0},{"elapsed":"00:00:00","fail":0,"id":"s1-s6","label":"Tests.Estoque Escriturado Suite","name":"Estoque Escriturado Suite","pass":1,"skip":0},{"elapsed":"00:00:00","fail":0,"id":"s1-s7","label":"Tests.Exportacoes Suite","name":"Exportacoes Suite","pass":1,"skip":0},{"elapsed":"00:00:03","fail":0,"id":"s1-s8","label":"Tests.Import BlocoM Suite","name":"Import BlocoM Suite","pass":4,"skip":0},{"elapsed":"00:00:01","fail":0,"id":"s1-s9","label":"Tests.Import Geral Suite","name":"Import Geral Suite","pass":1,"skip":0},{"elapsed":"00:00:00","fail":0,"id":"s1-s10","label":"Tests.Retida Fonte Suite","name":"Retida Fonte Suite","pass":1,"skip":0}]];
 </script>
 <script type="text/javascript">
-window.output["baseMillis"] = 1648048582373;
+window.output["baseMillis"] = 1651696480023;
 </script>
 <script type="text/javascript">
-window.output["generated"] = 10727;
-=======
-window.output["strings"] = window.output["strings"].concat(["*","*Knw","*C:\\Sovos\\cloud_fiscal\\cloud_fiscal\\API_KNW\\tests\\knw.robot","*../tests/knw.robot","*<p>Session route test suite\x3c/p>","*Consultar Empresas","eNqtzEEKwjAQAMCvrH1AthRPoe1BzF0Q6VGWbEqKiQnZtPH5+ghPc5tHCRpGAl/cOnW+1qwRW2vKp6gkO1Y2pJ3XTSwFZVPE+81cn4u5IOUNX++Gx4BMnMTEXJyQdPNfmhFpBvPJzlbHIJXqLhqG/gyn6Uf/BdYHP+s=","*KNW F600 Retida Fonte"]);
-</script>
-<script type="text/javascript">
-window.output["stats"] = [[{"elapsed":"00:00:01","fail":1,"label":"All Tests","pass":1,"skip":0}],[],[{"elapsed":"00:00:01","fail":1,"id":"s1","label":"Knw","name":"Knw","pass":1,"skip":0}]];
-</script>
-<script type="text/javascript">
-window.output["baseMillis"] = 1647892615687;
-</script>
-<script type="text/javascript">
-window.output["generated"] = 1395;
->>>>>>> 1408b54774b1dc9bbd1e1eda362e3103ba79e848
+window.output["generated"] = 8272;
 </script>
 <script type="text/javascript">
 window.output["expand_keywords"] = null;

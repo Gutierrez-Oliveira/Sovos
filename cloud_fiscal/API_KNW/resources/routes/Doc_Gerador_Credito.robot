@@ -10,11 +10,7 @@ POST Gerador Credito
 
     ${response}     POST       ${API_USERS}/demaisDocGeradorCredito       json=${payload}       expected_status=any
 
-<<<<<<< HEAD
     ...                          data={"objetos":[{"knwScF100":{"COD_EMPRESA":0,"COD_FILIAL":0,"ID_USUARIO_IMP":"string","CD_PLANO_CONTA":"string","chave_REGISTRO":"string","DS_COMPLEMENTAR":"string","CD_PROD_SERV":"string","ALIQ_PIS":0,"ALIQ_COFINS":0,"DT_OPERACAO":"2022-03-22T14:55:38.905Z","CD_437":"string","DM_ORIGEM_CRED":"string","VL_OPERACAO":0,"CD_433":"string","VL_BC_PIS":0,"VL_PIS":0,"CD_434":"string","VL_BC_COFINS":0,"VL_COFINS":0,"CD_CCUSTO_DESP":"string","DM_OPERACAO":"string","CD_PESSOA":"string"}}]}
-=======
-    ...                          data="json aqui"
->>>>>>> 1408b54774b1dc9bbd1e1eda362e3103ba79e848
     ...                          headers=${ headers }
 
     [return]        ${response}

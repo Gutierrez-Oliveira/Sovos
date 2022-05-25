@@ -11,8 +11,7 @@ KNW F600 Retida Fonte
 
     ${payload}      Create Dictionary               Content-Type=application/json
 
-    ${response}     POST Retida Fonte       ${payload}
+    ${response}     POST Retida Fonte               json=${payload}
 
-    Status Should Be        200                     ${response}
-
-
+    Status Should Be        200                             ${response}
+    Should Be Equal         ${response.json()}[sucesso]     ${true}

@@ -5,7 +5,6 @@ Resource                ${EXECDIR}/resources/Base.robot
 
 *Test Cases* 
 
-<<<<<<< HEAD
 #Import Inventario
     
 
@@ -15,6 +14,7 @@ Import Pessoas
     ${response}     POST Import Pessoas             ${payload}
 
     Status Should Be        200                     ${response}
+    Should Be Equal         ${response.json()}[sucesso]    ${true}
 
 # Import Produção Usina
     
@@ -26,23 +26,5 @@ Import Pessoas
 
 # Import Valores Agregados
     
-=======
-Import Inventario
-    POST Import Inventario
-
-Import Pessoas
-    POST Import Pessoas
-
-Import Produção Usina
-    POST Import Producao Usina
-
-
-Import Produto Serviço
-    POST Import Produto Servico
-
-
-Import Valores Agregados
-    POST Import Valores Agregados
->>>>>>> 1408b54774b1dc9bbd1e1eda362e3103ba79e848
 
 

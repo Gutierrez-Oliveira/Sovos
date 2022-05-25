@@ -1,25 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<robot generator="Robot 4.1.2 (Python 3.10.0 on win32)" generated="20220323 12:16:22.366" rpa="false" schemaversion="2">
+<robot generator="Robot 5.0 (Python 3.10.0 on win32)" generated="20220504 17:34:40.020" rpa="false" schemaversion="3">
 <suite id="s1" name="Tests" source="C:\Sovos\cloud_fiscal\API_KNW\tests">
-<suite id="s1-s1" name="Ativo Imobilizado Suite" source="C:\Sovos\cloud_fiscal\API_KNW\tests\Ativo_Imobilizado_Suite.robot">
-<test id="s1-s1-t1" name="Atualizar NF C100">
+<suite id="s1-s1" name="Ativo Imobilizado" source="C:\Sovos\cloud_fiscal\API_KNW\tests\Ativo_Imobilizado.robot">
+<test id="s1-s1-t1" name="Atualizar NF C100" line="10">
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${payload}</var>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220323 12:16:22.755" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20220323 12:16:22.755" endtime="20220323 12:16:22.755"/>
-=======
-<robot generator="Robot 4.1.2 (Python 3.10.0 on win32)" generated="20220321 16:56:55.683" rpa="false" schemaversion="2">
-<suite id="s1" name="Knw" source="C:\Sovos\cloud_fiscal\cloud_fiscal\API_KNW\tests\knw.robot">
-<test id="s1-t1" name="Consultar Empresas">
-<kw name="Create Dictionary" library="BuiltIn">
-<var>${payload}</var>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220321 16:56:55.932" level="INFO">${payload} = {}</msg>
-<status status="PASS" starttime="20220321 16:56:55.932" endtime="20220321 16:56:55.932"/>
->>>>>>> 1408b54774b1dc9bbd1e1eda362e3103ba79e848
+<msg timestamp="20220504 17:34:40.390" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20220504 17:34:40.389" endtime="20220504 17:34:40.390"/>
 </kw>
 <kw name="POST Ativo Imobilizado" library="Bens_Ativo_Imobilizado">
 <var>${response}</var>
@@ -28,11 +17,10 @@
 <var>${headers}</var>
 <arg>X-Token=01032007</arg>
 <arg>X-Cnpj=11272927000105</arg>
-<<<<<<< HEAD
 <arg>content-type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220323 12:16:22.757" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
-<status status="PASS" starttime="20220323 12:16:22.756" endtime="20220323 12:16:22.757"/>
+<msg timestamp="20220504 17:34:40.391" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
+<status status="PASS" starttime="20220504 17:34:40.391" endtime="20220504 17:34:40.391"/>
 </kw>
 <kw name="POST" library="RequestsLibrary">
 <var>${response}</var>
@@ -42,74 +30,41 @@
 <arg>data={"objetos":[{"knwScF120":{"COD_EMPRESA":0,"COD_FILIAL":0,"ID_USUARIO_IMP":"string","CD_PLANO_CONTA":"string","chave_REGISTRO":"string","NR_ITEM":0,"DS_COMPLEMENTAR":"string","ALIQ_PIS":0,"ALIQ_COFINS":0,"DT_REFERENCIA":"2022-03-22T14:55:38.721Z","CD_437":"string","DM_BEM_IMOB":"string","DM_ORIGEM_CRED":"string","DM_UTILIZ_BEM":"string","NR_MES_ANO_AQUISICAO":"string","VL_OPERACAO":0,"VL_PARCELA":0,"VL_BASE_CALCULO_CRED":0,"NR_PARCELA":0,"CD_433":"string","VL_BC_PIS":0,"VL_PIS":0,"CD_434":"string","VL_BC_COFINS":0,"VL_COFINS":0,"CD_CCUSTO_DESP":"string"},"knw0500":{"COD_EMPRESA":0,"COD_FILIAL":0,"ID_USUARIO_IMP":"string","CD_PLANO_CONTA":"string","DT_INICIAL":"2022-03-22T14:55:38.721Z","DM_TIPO_CONTA":"string","CD_PLAN_CTA_TOT":"string","DS_PLANO_CONTA":"string","DM_NATUREZA":"string","DM_NIVEL":"string","DT_IMPORTACAO":"2022-03-22T14:55:38.721Z","DM_GERAL_AUX":"string","ID_ORDEM":0,"CD_REDUZIDA":"string","chave_REGISTRO":"string"},"knw0600":{"COD_EMPRESA":0,"COD_FILIAL":0,"ID_USUARIO_IMP":"string","DT_INICIAL":"2022-03-22T14:55:38.721Z","chave_REGISTRO":"string","CD_CENTRO_CUSTO":"string","DS_CENTRO_CUSTO":"string"}}]}</arg>
 <arg>headers=${ headers }</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20220323 12:16:23.490" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/bensIncorporadosAtivoImobilizado 
+<msg timestamp="20220504 17:34:41.278" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/bensIncorporadosAtivoImobilizado 
  path_url=/SPED_WEB/api/knw/v2/bensIncorporadosAtivoImobilizado 
  headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json', 'Content-Length': '1136'} 
  body={"objetos":[{"knwScF120":{"COD_EMPRESA":0,"COD_FILIAL":0,"ID_USUARIO_IMP":"string","CD_PLANO_CONTA":"string","chave_REGISTRO":"string","NR_ITEM":0,"DS_COMPLEMENTAR":"string","ALIQ_PIS":0,"ALIQ_COFINS":0,"DT_REFERENCIA":"2022-03-22T14:55:38.721Z","CD_437":"string","DM_BEM_IMOB":"string","DM_ORIGEM_CRED":"string","DM_UTILIZ_BEM":"string","NR_MES_ANO_AQUISICAO":"string","VL_OPERACAO":0,"VL_PARCELA":0,"VL_BASE_CALCULO_CRED":0,"NR_PARCELA":0,"CD_433":"string","VL_BC_PIS":0,"VL_PIS":0,"CD_434":"string","VL_BC_COFINS":0,"VL_COFINS":0,"CD_CCUSTO_DESP":"string"},"knw0500":{"COD_EMPRESA":0,"COD_FILIAL":0,"ID_USUARIO_IMP":"string","CD_PLANO_CONTA":"string","DT_INICIAL":"2022-03-22T14:55:38.721Z","DM_TIPO_CONTA":"string","CD_PLAN_CTA_TOT":"string","DS_PLANO_CONTA":"string","DM_NATUREZA":"string","DM_NIVEL":"string","DT_IMPORTACAO":"2022-03-22T14:55:38.721Z","DM_GERAL_AUX":"string","ID_ORDEM":0,"CD_REDUZIDA":"string","chave_REGISTRO":"string"},"knw0600":{"COD_EMPRESA":0,"COD_FILIAL":0,"ID_USUARIO_IMP":"string","DT_INICIAL":"2022-03-22T14:55:38.721Z","chave_REGISTRO":"string","CD_CENTRO_CUSTO":"string","DS_CENTRO_CUSTO":"string"}}]} 
  </msg>
-<msg timestamp="20220323 12:16:23.491" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/bensIncorporadosAtivoImobilizado 
+<msg timestamp="20220504 17:34:41.278" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/bensIncorporadosAtivoImobilizado 
  status=200, reason=OK 
- headers={'Date': 'Wed, 23 Mar 2022 15:16:22 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=J5/yjLlYBYw1Yl2g3cJwDWh78c4gtgKcKLwZbMJNN5Goo70IJYmmB5I0Quw1eQBRoiEFLJbYYEs7iCXUn3aPXL6rWCoIWMAll76FHCpiYSVDwUWE6cQtL+dt1EdF; Expires=Wed, 30 Mar 2022 15:16:22 GMT; Path=/, AWSALBCORS=J5/yjLlYBYw1Yl2g3cJwDWh78c4gtgKcKLwZbMJNN5Goo70IJYmmB5I0Quw1eQBRoiEFLJbYYEs7iCXUn3aPXL6rWCoIWMAll76FHCpiYSVDwUWE6cQtL+dt1EdF; Expires=Wed, 30 Mar 2022 15:16:22 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
- body={"sucesso":false,"erro":"Integração processada com erros.","mensagens":["3 - Empresa não encontrada: 0 - 0"],"payload":null} 
+ headers={'Date': 'Wed, 04 May 2022 20:34:41 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=6et8O5+T7tYw5eFO3zAUEWyYbf+WnrO/jCnfP27rGO6BT90TTeDpHzJjbcdTyItUTRyQehM0eYcM0AT7ZwWcgq3kD4xG4Ng1e1lMRFjPzh0gB4mR7F9ZgHvFfrqk; Expires=Wed, 11 May 2022 20:34:40 GMT; Path=/, AWSALBCORS=6et8O5+T7tYw5eFO3zAUEWyYbf+WnrO/jCnfP27rGO6BT90TTeDpHzJjbcdTyItUTRyQehM0eYcM0AT7ZwWcgq3kD4xG4Ng1e1lMRFjPzh0gB4mR7F9ZgHvFfrqk; Expires=Wed, 11 May 2022 20:34:40 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
+ body={"sucesso":false,"erro":"Integração processada com erros.","mensagens":["1 - Empresa não encontrada: 0 - 0"],"payload":null} 
  </msg>
-<msg timestamp="20220323 12:16:23.491" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220323 12:16:22.757" endtime="20220323 12:16:23.491"/>
+<msg timestamp="20220504 17:34:41.278" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220504 17:34:40.391" endtime="20220504 17:34:41.279"/>
 </kw>
-<msg timestamp="20220323 12:16:23.491" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220323 12:16:22.756" endtime="20220323 12:16:23.491"/>
-=======
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220321 16:56:55.933" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105'}</msg>
-<status status="PASS" starttime="20220321 16:56:55.933" endtime="20220321 16:56:55.933"/>
-</kw>
-<kw name="GET" library="RequestsLibrary">
-<var>${response}</var>
-<arg>${API_USERS}/dadosEmpresas</arg>
-<doc>Sends a GET request.</doc>
-<msg timestamp="20220321 16:56:56.486" level="INFO">GET Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/dadosEmpresas 
- path_url=/SPED_WEB/api/knw/v2/dadosEmpresas 
- headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
- body=None 
- </msg>
-<msg timestamp="20220321 16:56:56.487" level="INFO">GET Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/dadosEmpresas 
- status=204, reason=No Content 
- headers={'Date': 'Mon, 21 Mar 2022 19:56:54 GMT', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=Rn8UkED5ESizGJUr8ACWkBBio8wf0T4+z0JElyzlJXZ0KlDkKbFQvpGCMk1SIaJxYx2svkzXedIei3Pu8gLTqPnB0GDkUZLbp6um3FUAAosXNbydxVtm1j1udZ3v; Expires=Mon, 28 Mar 2022 19:56:54 GMT; Path=/, AWSALBCORS=Rn8UkED5ESizGJUr8ACWkBBio8wf0T4+z0JElyzlJXZ0KlDkKbFQvpGCMk1SIaJxYx2svkzXedIei3Pu8gLTqPnB0GDkUZLbp6um3FUAAosXNbydxVtm1j1udZ3v; Expires=Mon, 28 Mar 2022 19:56:54 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
- body=None 
- </msg>
-<msg timestamp="20220321 16:56:56.487" level="INFO">${response} = &lt;Response [204]&gt;</msg>
-<status status="PASS" starttime="20220321 16:56:55.933" endtime="20220321 16:56:56.487"/>
-</kw>
-<msg timestamp="20220321 16:56:56.487" level="INFO">${response} = &lt;Response [204]&gt;</msg>
-<status status="PASS" starttime="20220321 16:56:55.932" endtime="20220321 16:56:56.487"/>
->>>>>>> 1408b54774b1dc9bbd1e1eda362e3103ba79e848
+<msg timestamp="20220504 17:34:41.279" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220504 17:34:40.390" endtime="20220504 17:34:41.279"/>
 </kw>
 <kw name="Status Should Be" library="RequestsLibrary">
 <arg>200</arg>
 <arg>${response}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<<<<<<< HEAD
-<status status="PASS" starttime="20220323 12:16:23.492" endtime="20220323 12:16:23.493"/>
+<status status="PASS" starttime="20220504 17:34:41.279" endtime="20220504 17:34:41.279"/>
 </kw>
-<status status="PASS" starttime="20220323 12:16:22.754" endtime="20220323 12:16:23.494"/>
-=======
-<msg timestamp="20220321 16:56:56.493" level="FAIL">Url: http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/dadosEmpresas Expected status: 204 != 200</msg>
-<status status="FAIL" starttime="20220321 16:56:56.487" endtime="20220321 16:56:56.493"/>
-</kw>
-<status status="FAIL" starttime="20220321 16:56:55.931" endtime="20220321 16:56:56.494">Url: http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/dadosEmpresas Expected status: 204 != 200</status>
->>>>>>> 1408b54774b1dc9bbd1e1eda362e3103ba79e848
+<status status="PASS" starttime="20220504 17:34:40.389" endtime="20220504 17:34:41.280"/>
 </test>
 <doc>Suite de testes Bens Incorporados Ativos Imobilizados</doc>
-<status status="PASS" starttime="20220323 12:16:22.418" endtime="20220323 12:16:23.496"/>
+<status status="PASS" starttime="20220504 17:34:40.055" endtime="20220504 17:34:41.281"/>
 </suite>
 <suite id="s1-s2" name="Atualizacao NF Suite" source="C:\Sovos\cloud_fiscal\API_KNW\tests\Atualizacao_NF_Suite.robot">
-<test id="s1-s2-t1" name="Atualizar NF C100">
+<test id="s1-s2-t1" name="Atualizacao NF C100" line="8">
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${payload}</var>
 <arg>Content-Type=application/json</arg>
-<<<<<<< HEAD
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220323 12:16:23.545" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20220323 12:16:23.545" endtime="20220323 12:16:23.545"/>
+<msg timestamp="20220504 17:34:41.304" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20220504 17:34:41.304" endtime="20220504 17:34:41.304"/>
 </kw>
 <kw name="POST Atualizar NF C100" library="Atualizacao_NF">
 <var>${response}</var>
@@ -120,107 +75,112 @@
 <arg>X-Cnpj=11272927000105</arg>
 <arg>content-type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220323 12:16:23.547" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
-<status status="PASS" starttime="20220323 12:16:23.547" endtime="20220323 12:16:23.548"/>
+<msg timestamp="20220504 17:34:41.305" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
+<status status="PASS" starttime="20220504 17:34:41.305" endtime="20220504 17:34:41.305"/>
 </kw>
 <kw name="POST" library="RequestsLibrary">
 <var>${response}</var>
 <arg>${API_USERS}/atualizarDadosNotaFiscal</arg>
 <arg>json=${payload}</arg>
 <arg>expected_status=any</arg>
-<arg>data={"objetos":[{"knwC100":{"DM_EMITENTE":"string","DM_ENTRADA_SAIDA":"string","SERIE_SUBSERIE":"string","NR_DOCUMENTO":"string","DT_EMISSAO_DOC":"2022-03-17T12:40:13.913Z","DT_ENTRADA":"2022-03-17T12:40:13.913Z","VL_TOTAL_MERCAD":0,"VL_DESCONTO":0,"VL_FRETE":0,"VL_SEGURO":0,"VL_OUTRAS_DESP":0,"VL_IPI":0,"VL_ICMS_SUBSTIT":0,"VL_TOT_N_FISCAL":0,"NR_INSC_EST_SUB":"string","DM_TIPO_FATURA":"string","DS_OBSERVACAO":"string","COD_EMPRESA":0,"COD_FILIAL":0,"CD_MODELO_DOC":"string","CD_PESSOA_REMET_DEST":"string","DM_MODAL_FRETE":"string","CD_SIT_DOCUMENTO":"string","NR_CHAVE_ELETR":"string","VL_ABAT_N_TRIB":0,"NR_REFERENCIA":"string","DS_ADE":"string","COD_MUN_ORIG":"string","COD_MUN_DES":"string","NR_CNPJ_CPF_VENDA_CONS":"string","DS_NATUREZA":"string","DS_UF_DEST_EMIT":"string","DS_RESSARCIMENTO":"string","ID_USUARIO_IMP":"string","VL_SERV_NT":0,"VL_BC_IRRF":0,"VL_IRRF":0,"VL_BC_PREV":0,"VL_PREV":0,"CD_MUN_SERV_PREST":"string","VL_MATERIAL_TERC":0,"VL_SUB_EMPR":0,"DM_FINALIDADE":"string","DM_DESTINATARIO":"string","chave_REGISTRO":"string"}}]}</arg>
+<arg>data=</arg>
+<arg>Evaluate</arg>
+<arg>json.loads($js_string)</arg>
+<arg>json</arg>
+<arg>${js_string}=</arg>
+<arg>Evaluate</arg>
+<arg>json.dumps($data)</arg>
+<arg>json</arg>
 <arg>headers=${ headers }</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20220323 12:16:24.309" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/atualizarDadosNotaFiscal 
- path_url=/SPED_WEB/api/knw/v2/atualizarDadosNotaFiscal 
- headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json', 'Content-Length': '1051'} 
- body={"objetos":[{"knwC100":{"DM_EMITENTE":"string","DM_ENTRADA_SAIDA":"string","SERIE_SUBSERIE":"string","NR_DOCUMENTO":"string","DT_EMISSAO_DOC":"2022-03-17T12:40:13.913Z","DT_ENTRADA":"2022-03-17T12:40:13.913Z","VL_TOTAL_MERCAD":0,"VL_DESCONTO":0,"VL_FRETE":0,"VL_SEGURO":0,"VL_OUTRAS_DESP":0,"VL_IPI":0,"VL_ICMS_SUBSTIT":0,"VL_TOT_N_FISCAL":0,"NR_INSC_EST_SUB":"string","DM_TIPO_FATURA":"string","DS_OBSERVACAO":"string","COD_EMPRESA":0,"COD_FILIAL":0,"CD_MODELO_DOC":"string","CD_PESSOA_REMET_DEST":"string","DM_MODAL_FRETE":"string","CD_SIT_DOCUMENTO":"string","NR_CHAVE_ELETR":"string","VL_ABAT_N_TRIB":0,"NR_REFERENCIA":"string","DS_ADE":"string","COD_MUN_ORIG":"string","COD_MUN_DES":"string","NR_CNPJ_CPF_VENDA_CONS":"string","DS_NATUREZA":"string","DS_UF_DEST_EMIT":"string","DS_RESSARCIMENTO":"string","ID_USUARIO_IMP":"string","VL_SERV_NT":0,"VL_BC_IRRF":0,"VL_IRRF":0,"VL_BC_PREV":0,"VL_PREV":0,"CD_MUN_SERV_PREST":"string","VL_MATERIAL_TERC":0,"VL_SUB_EMPR":0,"DM_FINALIDADE":"string","DM_DESTINATARIO":"string","chave_REGISTRO":"string"}}]} 
- </msg>
-<msg timestamp="20220323 12:16:24.310" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/atualizarDadosNotaFiscal 
- status=200, reason=OK 
- headers={'Date': 'Wed, 23 Mar 2022 15:16:23 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=2r8f8yMt/0ApiFf3BatAO50w2Trxrs44tIoEnuqrNcL4BXxCALQbspkVDsgM1FqdQ0KOVxObUhSN4ZMGL3PbBnMVQuYUbtFehcW7EdrcTFUlVfxkkR1BY9iY1ehX; Expires=Wed, 30 Mar 2022 15:16:23 GMT; Path=/, AWSALBCORS=2r8f8yMt/0ApiFf3BatAO50w2Trxrs44tIoEnuqrNcL4BXxCALQbspkVDsgM1FqdQ0KOVxObUhSN4ZMGL3PbBnMVQuYUbtFehcW7EdrcTFUlVfxkkR1BY9iY1ehX; Expires=Wed, 30 Mar 2022 15:16:23 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
- body={"sucesso":false,"erro":"Integração processada com erros.","mensagens":["57 - DT_PERIODO: 17/03/2022, NR_CHAVE_ELETR: string: IntegracaoAtualizarNotaFiscal.knwC100.CD_MODELO_DOC: size must be between 2 and 2","58 - DT_PERIODO: 17/03/2022, NR_CHAVE_ELETR: string: IntegracaoAtualizarNotaFiscal.knwC100.SERIE_SUBSERIE: size must be between 0 and 5","59 - DT_PERIODO: 17/03/2022, NR_CHAVE_ELETR: string: IntegracaoAtualizarNotaFiscal.knwC100.DM_EMITENTE: Valor invalido: string. Valores permitidos: 0, 1","60 - DT_PERIODO: 17/03/2022, NR_CHAVE_ELETR: string: IntegracaoAtualizarNotaFiscal.knwC100.DS_RESSARCIMENTO: size must be between 0 and 1","61 - DT_PERIODO: 17/03/2022, NR_CHAVE_ELETR: string: IntegracaoAtualizarNotaFiscal.knwC100.DM_ENTRADA_SAIDA: Valor invalido: string. Valores permitidos: E, S","62 - DT_PERIODO: 17/03/2022, NR_CHAVE_ELETR: string: IntegracaoAtualizarNotaFiscal.knwC100.NR_CHAVE_ELETR: size must be between 44 and 44","63 - DT_PERIODO: 17/03/2022, NR_CHAVE_ELETR: string: IntegracaoAtualizarNotaFiscal.knwC100.DM_DESTINATARIO: Valor invalido: string. Valores permitidos: 1, 2, 9","64 - DT_PERIODO: 17/03/2022, NR_CHAVE_ELETR: string: IntegracaoAtualizarNotaFiscal.knwC100.DM_FINALIDADE: Valor invalido: string. Valores permitidos: 1, 2, 3","65 - DT_PERIODO: 17/03/2022, NR_CHAVE_ELETR: string: IntegracaoAtualizarNotaFiscal.knwC100.CD_SIT_DOCUMENTO: Valor invalido: string. Valores permitidos: 00, 01, 02, 03, 04, 05, 06, 07, 08","66 - DT_PERIODO: 17/03/2022, NR_CHAVE_ELETR: string: IntegracaoAtualizarNotaFiscal.knwC100.DM_TIPO_FATURA: Valor invalido: string. Valores permitidos: 0, 1, 2, 9","67 - DT_PERIODO: 17/03/2022, NR_CHAVE_ELETR: string: IntegracaoAtualizarNotaFiscal.knwC100.DM_ENTRADA_SAIDA: size must be between 1 and 1","68 - DT_PERIODO: 17/03/2022, NR_CHAVE_ELETR: string: IntegracaoAtualizarNotaFiscal.knwC100.CD_MUN_SERV_PREST: size must be between 7 and 7","69 - DT_PERIODO: 17/03/2022, NR_CHAVE_ELETR: string: IntegracaoAtualizarNotaFiscal.knwC100.DM_MODAL_FRETE: Valor invalido: string. Valores permitidos: 0, 1, 2, 3, 4, 9","70 - DT_PERIODO: 17/03/2022, NR_CHAVE_ELETR: string: IntegracaoAtualizarNotaFiscal.knwC100.DS_UF_DEST_EMIT: size must be between 0 and 2"],"payload":null} 
- </msg>
-<msg timestamp="20220323 12:16:24.310" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220323 12:16:23.548" endtime="20220323 12:16:24.310"/>
+<msg timestamp="20220504 17:34:41.306" level="FAIL">Keyword 'RequestsLibrary.POST' got positional argument after named arguments.</msg>
+<status status="FAIL" starttime="20220504 17:34:41.305" endtime="20220504 17:34:41.306"/>
 </kw>
-<msg timestamp="20220323 12:16:24.311" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220323 12:16:23.546" endtime="20220323 12:16:24.311"/>
+<status status="FAIL" starttime="20220504 17:34:41.305" endtime="20220504 17:34:41.306"/>
 </kw>
 <kw name="Status Should Be" library="RequestsLibrary">
 <arg>200</arg>
 <arg>${response}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" starttime="20220323 12:16:24.312" endtime="20220323 12:16:24.312"/>
+<status status="NOT RUN" starttime="20220504 17:34:41.306" endtime="20220504 17:34:41.306"/>
 </kw>
-<status status="PASS" starttime="20220323 12:16:23.544" endtime="20220323 12:16:24.313"/>
+<status status="FAIL" starttime="20220504 17:34:41.303" endtime="20220504 17:34:41.307">Keyword 'RequestsLibrary.POST' got positional argument after named arguments.</status>
 </test>
 <doc>Suite de testes atualização das NFs</doc>
-<status status="PASS" starttime="20220323 12:16:23.499" endtime="20220323 12:16:24.315"/>
+<status status="FAIL" starttime="20220504 17:34:41.282" endtime="20220504 17:34:41.308"/>
 </suite>
-<suite id="s1-s3" name="Consult Dados Emp Suite" source="C:\Sovos\cloud_fiscal\API_KNW\tests\Consult_Dados_Emp_Suite.robot">
-<test id="s1-s3-t1" name="Consultar Empresas">
+<suite id="s1-s3" name="Consultar Empresas" source="C:\Sovos\cloud_fiscal\API_KNW\tests\Consultar_Empresas.robot">
+<test id="s1-s3-t1" name="Consultar Empresas" line="7">
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${payload}</var>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220323 12:16:24.366" level="INFO">${payload} = {}</msg>
-<status status="PASS" starttime="20220323 12:16:24.366" endtime="20220323 12:16:24.367"/>
+<msg timestamp="20220504 17:34:41.331" level="INFO">${payload} = {}</msg>
+<status status="PASS" starttime="20220504 17:34:41.330" endtime="20220504 17:34:41.331"/>
 </kw>
 <kw name="GET Empresas" library="Empresas_Route">
 <var>${response}</var>
-<arg>${payload}</arg>
+<arg>json=${payload}</arg>
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${headers}</var>
 <arg>X-Token=01032007</arg>
 <arg>X-Cnpj=11272927000105</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220323 12:16:24.368" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105'}</msg>
-<status status="PASS" starttime="20220323 12:16:24.368" endtime="20220323 12:16:24.369"/>
+<msg timestamp="20220504 17:34:41.333" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105'}</msg>
+<status status="PASS" starttime="20220504 17:34:41.331" endtime="20220504 17:34:41.333"/>
 </kw>
 <kw name="GET" library="RequestsLibrary">
 <var>${response}</var>
 <arg>${API_USERS}/dadosEmpresas</arg>
+<arg>headers=${headers}</arg>
+<arg>expected_status=any</arg>
 <doc>Sends a GET request.</doc>
-<msg timestamp="20220323 12:16:25.020" level="INFO">GET Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/dadosEmpresas 
+<msg timestamp="20220504 17:34:41.701" level="INFO">GET Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/dadosEmpresas 
  path_url=/SPED_WEB/api/knw/v2/dadosEmpresas 
- headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-Token': '01032007', 'X-Cnpj': '11272927000105'} 
  body=None 
  </msg>
-<msg timestamp="20220323 12:16:25.021" level="INFO">GET Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/dadosEmpresas 
- status=204, reason=No Content 
- headers={'Date': 'Wed, 23 Mar 2022 15:16:24 GMT', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=cEwY5ZvdR4xndmqYTAoMK0//AWqUNKj6QhqG8IYHVorJIo0UWdfkxY81njRrv5MEeyFIVoOcLcgIh8tTR+TvBVrgLzAERxLFkyFVsLrI97EwUr+FJU2/5c99fdb7; Expires=Wed, 30 Mar 2022 15:16:24 GMT; Path=/, AWSALBCORS=cEwY5ZvdR4xndmqYTAoMK0//AWqUNKj6QhqG8IYHVorJIo0UWdfkxY81njRrv5MEeyFIVoOcLcgIh8tTR+TvBVrgLzAERxLFkyFVsLrI97EwUr+FJU2/5c99fdb7; Expires=Wed, 30 Mar 2022 15:16:24 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
- body=None 
+<msg timestamp="20220504 17:34:41.701" level="INFO">GET Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/dadosEmpresas 
+ status=200, reason=OK 
+ headers={'Date': 'Wed, 04 May 2022 20:34:41 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=jODBQ7IEPqv9pGviKQPAcnK8xsqQxo18jiz5YTY3CNqkK8+NI5N3AWZLgSJXEq5rF/BFLAaSDjpHlF8CsevnUxj5re4PfHy1pv/O3ySlsnO6wmRZ9UaE/mc4fN8O; Expires=Wed, 11 May 2022 20:34:41 GMT; Path=/, AWSALBCORS=jODBQ7IEPqv9pGviKQPAcnK8xsqQxo18jiz5YTY3CNqkK8+NI5N3AWZLgSJXEq5rF/BFLAaSDjpHlF8CsevnUxj5re4PfHy1pv/O3ySlsnO6wmRZ9UaE/mc4fN8O; Expires=Wed, 11 May 2022 20:34:41 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
+ body={"sucesso":true,"erro":null,"mensagens":null,"payload":{"empresas":[{"licenca":"0995","cnpj":"11272927000105","cdEmpresa":1,"cdUnidade":1,"usuarioWS":"0995","senhaWS":"01032007"}]}} 
  </msg>
-<msg timestamp="20220323 12:16:25.021" level="INFO">${response} = &lt;Response [204]&gt;</msg>
-<status status="PASS" starttime="20220323 12:16:24.369" endtime="20220323 12:16:25.021"/>
+<msg timestamp="20220504 17:34:41.701" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220504 17:34:41.333" endtime="20220504 17:34:41.701"/>
 </kw>
-<msg timestamp="20220323 12:16:25.022" level="INFO">${response} = &lt;Response [204]&gt;</msg>
-<status status="PASS" starttime="20220323 12:16:24.367" endtime="20220323 12:16:25.022"/>
+<msg timestamp="20220504 17:34:41.701" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220504 17:34:41.331" endtime="20220504 17:34:41.701"/>
 </kw>
 <kw name="Status Should Be" library="RequestsLibrary">
-<arg>204</arg>
+<arg>200</arg>
 <arg>${response}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" starttime="20220323 12:16:25.023" endtime="20220323 12:16:25.023"/>
+<status status="PASS" starttime="20220504 17:34:41.702" endtime="20220504 17:34:41.702"/>
 </kw>
-<status status="PASS" starttime="20220323 12:16:24.365" endtime="20220323 12:16:25.024"/>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${response.json()}[sucesso]</arg>
+<arg>${true}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220504 17:34:41.702" endtime="20220504 17:34:41.703"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${response.json()}[erro]</arg>
+<arg>${null}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220504 17:34:41.703" endtime="20220504 17:34:41.704"/>
+</kw>
+<status status="PASS" starttime="20220504 17:34:41.329" endtime="20220504 17:34:41.705"/>
 </test>
-<doc>Suite de testes de API de Consulta de dados da Empresa</doc>
-<status status="PASS" starttime="20220323 12:16:24.319" endtime="20220323 12:16:25.026"/>
+<doc>Consulta de dados da Empresa</doc>
+<status status="PASS" starttime="20220504 17:34:41.309" endtime="20220504 17:34:41.706"/>
 </suite>
 <suite id="s1-s4" name="Controle Creditos Suite" source="C:\Sovos\cloud_fiscal\API_KNW\tests\Controle_Creditos_Suite.robot">
-<test id="s1-s4-t1" name="Atualizar NF C100">
+<test id="s1-s4-t1" name="Atualizar NF C100" line="10">
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${payload}</var>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220323 12:16:25.075" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20220323 12:16:25.075" endtime="20220323 12:16:25.075"/>
-=======
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220321 16:56:56.496" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20220321 16:56:56.496" endtime="20220321 16:56:56.496"/>
->>>>>>> 1408b54774b1dc9bbd1e1eda362e3103ba79e848
+<msg timestamp="20220504 17:34:41.729" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20220504 17:34:41.729" endtime="20220504 17:34:41.729"/>
 </kw>
 <kw name="POST Controle Creditos" library="Controle_Creditos">
 <var>${response}</var>
@@ -231,9 +191,8 @@
 <arg>X-Cnpj=11272927000105</arg>
 <arg>content-type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<<<<<<< HEAD
-<msg timestamp="20220323 12:16:25.076" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
-<status status="PASS" starttime="20220323 12:16:25.076" endtime="20220323 12:16:25.076"/>
+<msg timestamp="20220504 17:34:41.731" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
+<status status="PASS" starttime="20220504 17:34:41.731" endtime="20220504 17:34:41.731"/>
 </kw>
 <kw name="POST" library="RequestsLibrary">
 <var>${response}</var>
@@ -243,41 +202,41 @@
 <arg>data={"objetos":[{"knw1200":{"COD_EMPRESA":0,"COD_FILIAL":0,"ID_USUARIO_IMP":"string","DT_IMPORTACAO":"2022-03-23T14:58:41.539Z","COD_GRUPOEMPRESA":"string","DT_PERIODO":"2022-03-23T14:58:41.539Z","CD_REF_511":"string","VL_SALDO_CRED":0,"VL_CRED_APROP":0,"VL_CRED_RECEB":0,"VL_SALDO_TRANSP":0,"VL_CRED_UTIL":0,"ID":"string"},"knw1210List":[{"NR_DOCUMENTO":"string","COD_EMPRESA":0,"COD_FILIAL":0,"ID_USUARIO_IMP":"string","DT_IMPORTACAO":"2022-03-23T14:58:41.539Z","CD_REF_55":"string","NR_ITEM":"string","COD_GRUPOEMPRESA":"string","NR_CHAVE_ACESSO":"string","DT_PERIODO":"2022-03-23T14:58:41.539Z","CD_REF_511":"string","VL_CRED_UTIL":0,"ID":"string"}]}]}</arg>
 <arg>headers=${ headers }</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20220323 12:16:25.846" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/controleCreditos 
+<msg timestamp="20220504 17:34:42.239" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/controleCreditos 
  path_url=/SPED_WEB/api/knw/v2/controleCreditos 
  headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json', 'Content-Length': '652'} 
  body={"objetos":[{"knw1200":{"COD_EMPRESA":0,"COD_FILIAL":0,"ID_USUARIO_IMP":"string","DT_IMPORTACAO":"2022-03-23T14:58:41.539Z","COD_GRUPOEMPRESA":"string","DT_PERIODO":"2022-03-23T14:58:41.539Z","CD_REF_511":"string","VL_SALDO_CRED":0,"VL_CRED_APROP":0,"VL_CRED_RECEB":0,"VL_SALDO_TRANSP":0,"VL_CRED_UTIL":0,"ID":"string"},"knw1210List":[{"NR_DOCUMENTO":"string","COD_EMPRESA":0,"COD_FILIAL":0,"ID_USUARIO_IMP":"string","DT_IMPORTACAO":"2022-03-23T14:58:41.539Z","CD_REF_55":"string","NR_ITEM":"string","COD_GRUPOEMPRESA":"string","NR_CHAVE_ACESSO":"string","DT_PERIODO":"2022-03-23T14:58:41.539Z","CD_REF_511":"string","VL_CRED_UTIL":0,"ID":"string"}]}]} 
  </msg>
-<msg timestamp="20220323 12:16:25.846" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/controleCreditos 
+<msg timestamp="20220504 17:34:42.239" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/controleCreditos 
  status=200, reason=OK 
- headers={'Date': 'Wed, 23 Mar 2022 15:16:24 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=vPeomPJUFRXB1gMj67MxywbQ0x+Ke0r53jSrP2O55ydQXQuy9KSQVD//PpJgOjG4Bo0pBrHYTUXXFoyRkevJrkV5GxSBrRp4l6yEVI1YOnhWoqRf964I46rtQ9py; Expires=Wed, 30 Mar 2022 15:16:24 GMT; Path=/, AWSALBCORS=vPeomPJUFRXB1gMj67MxywbQ0x+Ke0r53jSrP2O55ydQXQuy9KSQVD//PpJgOjG4Bo0pBrHYTUXXFoyRkevJrkV5GxSBrRp4l6yEVI1YOnhWoqRf964I46rtQ9py; Expires=Wed, 30 Mar 2022 15:16:24 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
- body={"sucesso":false,"erro":"Integração processada com erros.","mensagens":["3 - DT_PERIODO: 23/03/2022, CD_REF_511: string: Empresa não encontrada: CD_EMPRESA: 0, CD_FILIAL: 0"],"payload":null} 
+ headers={'Date': 'Wed, 04 May 2022 20:34:42 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=INHTWOk4RslPbm/xJB0e0nagdsUbJwLW+IUvxeU3J00e5eKU9HJ8OSHqmRfQuDrv24n63P5mnhFqLUNcO9Sm0W0rqIvEiFa8bjG1BFy8yOm4uH83k8oNAqdzsqsT; Expires=Wed, 11 May 2022 20:34:42 GMT; Path=/, AWSALBCORS=INHTWOk4RslPbm/xJB0e0nagdsUbJwLW+IUvxeU3J00e5eKU9HJ8OSHqmRfQuDrv24n63P5mnhFqLUNcO9Sm0W0rqIvEiFa8bjG1BFy8yOm4uH83k8oNAqdzsqsT; Expires=Wed, 11 May 2022 20:34:42 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
+ body={"sucesso":false,"erro":"Integração processada com erros.","mensagens":["1 - DT_PERIODO: 23/03/2022, CD_REF_511: string: Empresa não encontrada: CD_EMPRESA: 0, CD_FILIAL: 0"],"payload":null} 
  </msg>
-<msg timestamp="20220323 12:16:25.846" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220323 12:16:25.076" endtime="20220323 12:16:25.846"/>
+<msg timestamp="20220504 17:34:42.239" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220504 17:34:41.731" endtime="20220504 17:34:42.239"/>
 </kw>
-<msg timestamp="20220323 12:16:25.847" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220323 12:16:25.075" endtime="20220323 12:16:25.847"/>
+<msg timestamp="20220504 17:34:42.239" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220504 17:34:41.730" endtime="20220504 17:34:42.240"/>
 </kw>
 <kw name="Status Should Be" library="RequestsLibrary">
 <arg>200</arg>
 <arg>${response}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" starttime="20220323 12:16:25.848" endtime="20220323 12:16:25.848"/>
+<status status="PASS" starttime="20220504 17:34:42.240" endtime="20220504 17:34:42.240"/>
 </kw>
-<status status="PASS" starttime="20220323 12:16:25.074" endtime="20220323 12:16:25.849"/>
+<status status="PASS" starttime="20220504 17:34:41.728" endtime="20220504 17:34:42.241"/>
 </test>
 <doc>Suite de testes Contorle de Creditos</doc>
-<status status="PASS" starttime="20220323 12:16:25.030" endtime="20220323 12:16:25.851"/>
+<status status="PASS" starttime="20220504 17:34:41.707" endtime="20220504 17:34:42.241"/>
 </suite>
 <suite id="s1-s5" name="Doc Gerador Credito Suite" source="C:\Sovos\cloud_fiscal\API_KNW\tests\Doc_Gerador_Credito_Suite.robot">
-<test id="s1-s5-t1" name="Gerador de Credito">
+<test id="s1-s5-t1" name="Gerador de Credito" line="10">
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${payload}</var>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220323 12:16:25.905" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20220323 12:16:25.903" endtime="20220323 12:16:25.905"/>
+<msg timestamp="20220504 17:34:42.265" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20220504 17:34:42.265" endtime="20220504 17:34:42.265"/>
 </kw>
 <kw name="POST Gerador Credito" library="Doc_Gerador_Credito">
 <var>${response}</var>
@@ -288,8 +247,8 @@
 <arg>X-Cnpj=11272927000105</arg>
 <arg>content-type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220323 12:16:25.907" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
-<status status="PASS" starttime="20220323 12:16:25.907" endtime="20220323 12:16:25.907"/>
+<msg timestamp="20220504 17:34:42.267" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
+<status status="PASS" starttime="20220504 17:34:42.266" endtime="20220504 17:34:42.267"/>
 </kw>
 <kw name="POST" library="RequestsLibrary">
 <var>${response}</var>
@@ -299,41 +258,41 @@
 <arg>data={"objetos":[{"knwScF100":{"COD_EMPRESA":0,"COD_FILIAL":0,"ID_USUARIO_IMP":"string","CD_PLANO_CONTA":"string","chave_REGISTRO":"string","DS_COMPLEMENTAR":"string","CD_PROD_SERV":"string","ALIQ_PIS":0,"ALIQ_COFINS":0,"DT_OPERACAO":"2022-03-22T14:55:38.905Z","CD_437":"string","DM_ORIGEM_CRED":"string","VL_OPERACAO":0,"CD_433":"string","VL_BC_PIS":0,"VL_PIS":0,"CD_434":"string","VL_BC_COFINS":0,"VL_COFINS":0,"CD_CCUSTO_DESP":"string","DM_OPERACAO":"string","CD_PESSOA":"string"}}]}</arg>
 <arg>headers=${ headers }</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20220323 12:16:26.664" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/demaisDocGeradorCredito 
+<msg timestamp="20220504 17:34:43.681" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/demaisDocGeradorCredito 
  path_url=/SPED_WEB/api/knw/v2/demaisDocGeradorCredito 
  headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json', 'Content-Length': '481'} 
  body={"objetos":[{"knwScF100":{"COD_EMPRESA":0,"COD_FILIAL":0,"ID_USUARIO_IMP":"string","CD_PLANO_CONTA":"string","chave_REGISTRO":"string","DS_COMPLEMENTAR":"string","CD_PROD_SERV":"string","ALIQ_PIS":0,"ALIQ_COFINS":0,"DT_OPERACAO":"2022-03-22T14:55:38.905Z","CD_437":"string","DM_ORIGEM_CRED":"string","VL_OPERACAO":0,"CD_433":"string","VL_BC_PIS":0,"VL_PIS":0,"CD_434":"string","VL_BC_COFINS":0,"VL_COFINS":0,"CD_CCUSTO_DESP":"string","DM_OPERACAO":"string","CD_PESSOA":"string"}}]} 
  </msg>
-<msg timestamp="20220323 12:16:26.665" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/demaisDocGeradorCredito 
+<msg timestamp="20220504 17:34:43.681" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/demaisDocGeradorCredito 
  status=200, reason=OK 
- headers={'Date': 'Wed, 23 Mar 2022 15:16:25 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=GLTuuiBVFcRHablR388GTPQfHjFITx8uUAF8ux42STXcb/wYszHUxJYpiVNyBkV433Q2I54b40z3cfwabCADG5zwQs0++/h6SexgffHCbJKD2BL0eMDzHxSLSTtf; Expires=Wed, 30 Mar 2022 15:16:25 GMT; Path=/, AWSALBCORS=GLTuuiBVFcRHablR388GTPQfHjFITx8uUAF8ux42STXcb/wYszHUxJYpiVNyBkV433Q2I54b40z3cfwabCADG5zwQs0++/h6SexgffHCbJKD2BL0eMDzHxSLSTtf; Expires=Wed, 30 Mar 2022 15:16:25 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
- body={"sucesso":false,"erro":"Integração processada com erros.","mensagens":["2 - Empresa não encontrada: 0 - 0"],"payload":null} 
+ headers={'Date': 'Wed, 04 May 2022 20:34:43 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=ZjIm0mzkPXMEP7lKItM9E2SatW2Ah8jdf+HjDDJ6afH8NPJ7HPGKw0IzDaPdn5kNU0rlbzIziUmKONuTt+CPpABqzbqKM2QvuwOXsODEr/ZQhO1bODUy0X1MsS4Q; Expires=Wed, 11 May 2022 20:34:43 GMT; Path=/, AWSALBCORS=ZjIm0mzkPXMEP7lKItM9E2SatW2Ah8jdf+HjDDJ6afH8NPJ7HPGKw0IzDaPdn5kNU0rlbzIziUmKONuTt+CPpABqzbqKM2QvuwOXsODEr/ZQhO1bODUy0X1MsS4Q; Expires=Wed, 11 May 2022 20:34:43 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
+ body={"sucesso":false,"erro":"Integração processada com erros.","mensagens":["1 - Empresa não encontrada: 0 - 0"],"payload":null} 
  </msg>
-<msg timestamp="20220323 12:16:26.665" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220323 12:16:25.908" endtime="20220323 12:16:26.665"/>
+<msg timestamp="20220504 17:34:43.682" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220504 17:34:42.267" endtime="20220504 17:34:43.682"/>
 </kw>
-<msg timestamp="20220323 12:16:26.666" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220323 12:16:25.906" endtime="20220323 12:16:26.666"/>
+<msg timestamp="20220504 17:34:43.682" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220504 17:34:42.266" endtime="20220504 17:34:43.682"/>
 </kw>
 <kw name="Status Should Be" library="RequestsLibrary">
 <arg>200</arg>
 <arg>${response}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" starttime="20220323 12:16:26.666" endtime="20220323 12:16:26.667"/>
+<status status="PASS" starttime="20220504 17:34:43.682" endtime="20220504 17:34:43.683"/>
 </kw>
-<status status="PASS" starttime="20220323 12:16:25.902" endtime="20220323 12:16:26.668"/>
+<status status="PASS" starttime="20220504 17:34:42.264" endtime="20220504 17:34:43.683"/>
 </test>
 <doc>Suite de testes Gerador de Credito</doc>
-<status status="PASS" starttime="20220323 12:16:25.855" endtime="20220323 12:16:26.670"/>
+<status status="PASS" starttime="20220504 17:34:42.243" endtime="20220504 17:34:43.684"/>
 </suite>
 <suite id="s1-s6" name="Estoque Escriturado Suite" source="C:\Sovos\cloud_fiscal\API_KNW\tests\Estoque_Escriturado_Suite.robot">
-<test id="s1-s6-t1" name="Atualizar NF C100">
+<test id="s1-s6-t1" name="Atualizar NF C100" line="10">
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${payload}</var>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220323 12:16:26.720" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20220323 12:16:26.719" endtime="20220323 12:16:26.720"/>
+<msg timestamp="20220504 17:34:43.708" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20220504 17:34:43.708" endtime="20220504 17:34:43.708"/>
 </kw>
 <kw name="POST Estoque Escriturado" library="Estoque_Escriturado">
 <var>${response}</var>
@@ -344,8 +303,8 @@
 <arg>X-Cnpj=11272927000105</arg>
 <arg>content-type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220323 12:16:26.722" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
-<status status="PASS" starttime="20220323 12:16:26.721" endtime="20220323 12:16:26.722"/>
+<msg timestamp="20220504 17:34:43.709" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
+<status status="PASS" starttime="20220504 17:34:43.709" endtime="20220504 17:34:43.709"/>
 </kw>
 <kw name="POST" library="RequestsLibrary">
 <var>${response}</var>
@@ -355,41 +314,41 @@
 <arg>data={"objetos":[{"knwK200":{"COD_EMPRESA":0,"COD_FILIAL":0,"ID_USUARIO_IMP":"string","CD_PESSOA":"string","DT_EST_FINAL":"2022-03-22T14:55:38.908Z","CD_PRODUTO_SERVICO":"string","QTDE":0,"DM_ESTOQUE":"string"}}]}</arg>
 <arg>headers=${ headers }</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20220323 12:16:27.374" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/estoqueEscriturado 
+<msg timestamp="20220504 17:34:44.135" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/estoqueEscriturado 
  path_url=/SPED_WEB/api/knw/v2/estoqueEscriturado 
  headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json', 'Content-Length': '208'} 
  body={"objetos":[{"knwK200":{"COD_EMPRESA":0,"COD_FILIAL":0,"ID_USUARIO_IMP":"string","CD_PESSOA":"string","DT_EST_FINAL":"2022-03-22T14:55:38.908Z","CD_PRODUTO_SERVICO":"string","QTDE":0,"DM_ESTOQUE":"string"}}]} 
  </msg>
-<msg timestamp="20220323 12:16:27.375" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/estoqueEscriturado 
+<msg timestamp="20220504 17:34:44.135" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/estoqueEscriturado 
  status=200, reason=OK 
- headers={'Date': 'Wed, 23 Mar 2022 15:16:26 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=D0iGQRscdqndIaLrdBiNFgdlrbp6SEjQ6OeGrjeaL5qFJjCBlNP22sVRwuqsWAT5TWAQ9JXxcAFQasRvCf+Z7UtnuT5lrdYCNXaxS2y51bY9LCNONm3u5fjSaElf; Expires=Wed, 30 Mar 2022 15:16:26 GMT; Path=/, AWSALBCORS=D0iGQRscdqndIaLrdBiNFgdlrbp6SEjQ6OeGrjeaL5qFJjCBlNP22sVRwuqsWAT5TWAQ9JXxcAFQasRvCf+Z7UtnuT5lrdYCNXaxS2y51bY9LCNONm3u5fjSaElf; Expires=Wed, 30 Mar 2022 15:16:26 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
- body={"sucesso":false,"erro":"Integração processada com erros.","mensagens":["3 - Empresa não encontrada: 0 - 0"],"payload":null} 
+ headers={'Date': 'Wed, 04 May 2022 20:34:44 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=ict5NEtxG71U3/NRDJA2Db9GFujY8RZs7gCTPq4ZK+BfuMwZi79TQRmtZvWWO0Y6YUZDKo7QghNAp98MovPbsHk9wwDzWbymSywbzg+x2lybO6SFzS/L4PP7CEna; Expires=Wed, 11 May 2022 20:34:43 GMT; Path=/, AWSALBCORS=ict5NEtxG71U3/NRDJA2Db9GFujY8RZs7gCTPq4ZK+BfuMwZi79TQRmtZvWWO0Y6YUZDKo7QghNAp98MovPbsHk9wwDzWbymSywbzg+x2lybO6SFzS/L4PP7CEna; Expires=Wed, 11 May 2022 20:34:43 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
+ body={"sucesso":false,"erro":"Integração processada com erros.","mensagens":["1 - Empresa não encontrada: 0 - 0"],"payload":null} 
  </msg>
-<msg timestamp="20220323 12:16:27.375" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220323 12:16:26.722" endtime="20220323 12:16:27.375"/>
+<msg timestamp="20220504 17:34:44.135" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220504 17:34:43.710" endtime="20220504 17:34:44.135"/>
 </kw>
-<msg timestamp="20220323 12:16:27.376" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220323 12:16:26.721" endtime="20220323 12:16:27.376"/>
+<msg timestamp="20220504 17:34:44.135" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220504 17:34:43.709" endtime="20220504 17:34:44.135"/>
 </kw>
 <kw name="Status Should Be" library="RequestsLibrary">
 <arg>200</arg>
 <arg>${response}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" starttime="20220323 12:16:27.376" endtime="20220323 12:16:27.377"/>
+<status status="PASS" starttime="20220504 17:34:44.136" endtime="20220504 17:34:44.136"/>
 </kw>
-<status status="PASS" starttime="20220323 12:16:26.718" endtime="20220323 12:16:27.378"/>
+<status status="PASS" starttime="20220504 17:34:43.707" endtime="20220504 17:34:44.137"/>
 </test>
 <doc>Suite de testes Estoque Escriturado</doc>
-<status status="PASS" starttime="20220323 12:16:26.673" endtime="20220323 12:16:27.380"/>
+<status status="PASS" starttime="20220504 17:34:43.686" endtime="20220504 17:34:44.138"/>
 </suite>
 <suite id="s1-s7" name="Exportacoes Suite" source="C:\Sovos\cloud_fiscal\API_KNW\tests\Exportacoes_Suite.robot">
-<test id="s1-s7-t1" name="Exportacoes">
+<test id="s1-s7-t1" name="Exportacoes" line="10">
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${payload}</var>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220323 12:16:27.421" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20220323 12:16:27.420" endtime="20220323 12:16:27.421"/>
+<msg timestamp="20220504 17:34:44.160" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20220504 17:34:44.160" endtime="20220504 17:34:44.160"/>
 </kw>
 <kw name="POST Exportacao" library="Exportacoes">
 <var>${response}</var>
@@ -400,8 +359,8 @@
 <arg>X-Cnpj=11272927000105</arg>
 <arg>content-type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220323 12:16:27.423" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
-<status status="PASS" starttime="20220323 12:16:27.422" endtime="20220323 12:16:27.423"/>
+<msg timestamp="20220504 17:34:44.161" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
+<status status="PASS" starttime="20220504 17:34:44.161" endtime="20220504 17:34:44.161"/>
 </kw>
 <kw name="POST" library="RequestsLibrary">
 <var>${response}</var>
@@ -411,41 +370,41 @@
 <arg>data={"objetos":[{"knwSf1100":{"COD_EMPRESA":0,"COD_FILIAL":0,"ID_USUARIO_IMP":"string","DT_IMPORTACAO":"2022-03-21T21:22:44.331Z","DM_TIPO_DOC":"string","NR_DECLARACAO":"string","NR_REG_EXPORT":"string","DT_DECLARACAO":"2022-03-21T21:22:44.331Z","DM_AVERBACAO":"string","DT_REGISTRO":"2022-03-21T21:22:44.331Z","NR_CON_EMBARQUE":"string","DT_CONHECIMENTO":"2022-03-21T21:22:44.331Z","DT_AVERBACAO":"2022-03-21T21:22:44.331Z","DM_TP_CONHECIME":"string","CD_PAIS":"string"}}]}</arg>
 <arg>headers=${ headers }</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20220323 12:16:28.201" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/exportacoes 
+<msg timestamp="20220504 17:34:44.570" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/exportacoes 
  path_url=/SPED_WEB/api/knw/v2/exportacoes 
  headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json', 'Content-Length': '470'} 
  body={"objetos":[{"knwSf1100":{"COD_EMPRESA":0,"COD_FILIAL":0,"ID_USUARIO_IMP":"string","DT_IMPORTACAO":"2022-03-21T21:22:44.331Z","DM_TIPO_DOC":"string","NR_DECLARACAO":"string","NR_REG_EXPORT":"string","DT_DECLARACAO":"2022-03-21T21:22:44.331Z","DM_AVERBACAO":"string","DT_REGISTRO":"2022-03-21T21:22:44.331Z","NR_CON_EMBARQUE":"string","DT_CONHECIMENTO":"2022-03-21T21:22:44.331Z","DT_AVERBACAO":"2022-03-21T21:22:44.331Z","DM_TP_CONHECIME":"string","CD_PAIS":"string"}}]} 
  </msg>
-<msg timestamp="20220323 12:16:28.201" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/exportacoes 
+<msg timestamp="20220504 17:34:44.570" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/exportacoes 
  status=200, reason=OK 
- headers={'Date': 'Wed, 23 Mar 2022 15:16:27 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=DHdI1OpLOh/J0J7a67B/Xvwi+M/2fJY9SH8uniesDUDLn8bF0MRaFxuXSNoLOT/+SOi7YGpaOjTr5N30Ygxjg6EVXJbLqTvJ3QiVsYeoYgkfNaeion9lI5CVgPpd; Expires=Wed, 30 Mar 2022 15:16:27 GMT; Path=/, AWSALBCORS=DHdI1OpLOh/J0J7a67B/Xvwi+M/2fJY9SH8uniesDUDLn8bF0MRaFxuXSNoLOT/+SOi7YGpaOjTr5N30Ygxjg6EVXJbLqTvJ3QiVsYeoYgkfNaeion9lI5CVgPpd; Expires=Wed, 30 Mar 2022 15:16:27 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
- body={"sucesso":false,"erro":"Integração processada com erros.","mensagens":["3 - NullPointerException"],"payload":null} 
+ headers={'Date': 'Wed, 04 May 2022 20:34:44 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=2krAKYGq634vFvRpaHIl/ZiLCivryg6FR+NLmq4r8TtXRdWgv+K98+fvmO7QGY2DFnlz7Val9AC6RrziwkJ+CC2oMjSEqVDWYNKqKlTHEvoUNfr21tij7mfN1SEh; Expires=Wed, 11 May 2022 20:34:44 GMT; Path=/, AWSALBCORS=2krAKYGq634vFvRpaHIl/ZiLCivryg6FR+NLmq4r8TtXRdWgv+K98+fvmO7QGY2DFnlz7Val9AC6RrziwkJ+CC2oMjSEqVDWYNKqKlTHEvoUNfr21tij7mfN1SEh; Expires=Wed, 11 May 2022 20:34:44 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
+ body={"sucesso":false,"erro":"Integração processada com erros.","mensagens":["1 - NullPointerException"],"payload":null} 
  </msg>
-<msg timestamp="20220323 12:16:28.201" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220323 12:16:27.423" endtime="20220323 12:16:28.201"/>
+<msg timestamp="20220504 17:34:44.570" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220504 17:34:44.161" endtime="20220504 17:34:44.570"/>
 </kw>
-<msg timestamp="20220323 12:16:28.202" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220323 12:16:27.421" endtime="20220323 12:16:28.202"/>
+<msg timestamp="20220504 17:34:44.570" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220504 17:34:44.161" endtime="20220504 17:34:44.570"/>
 </kw>
 <kw name="Status Should Be" library="RequestsLibrary">
 <arg>200</arg>
 <arg>${response}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" starttime="20220323 12:16:28.203" endtime="20220323 12:16:28.204"/>
+<status status="PASS" starttime="20220504 17:34:44.571" endtime="20220504 17:34:44.571"/>
 </kw>
-<status status="PASS" starttime="20220323 12:16:27.419" endtime="20220323 12:16:28.204"/>
+<status status="PASS" starttime="20220504 17:34:44.159" endtime="20220504 17:34:44.572"/>
 </test>
 <doc>Suite de testes Exportações</doc>
-<status status="PASS" starttime="20220323 12:16:27.383" endtime="20220323 12:16:28.207"/>
+<status status="PASS" starttime="20220504 17:34:44.139" endtime="20220504 17:34:44.573"/>
 </suite>
 <suite id="s1-s8" name="Import BlocoM Suite" source="C:\Sovos\cloud_fiscal\API_KNW\tests\Import_BlocoM_Suite.robot">
-<test id="s1-s8-t1" name="Import Bloco M110">
+<test id="s1-s8-t1" name="Import Bloco M110" line="7">
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${payload}</var>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220323 12:16:28.257" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20220323 12:16:28.256" endtime="20220323 12:16:28.257"/>
+<msg timestamp="20220504 17:34:44.597" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20220504 17:34:44.596" endtime="20220504 17:34:44.597"/>
 </kw>
 <kw name="POST M110" library="Import_Bloco_M">
 <var>${response}</var>
@@ -456,8 +415,8 @@
 <arg>X-Cnpj=11272927000105</arg>
 <arg>content-type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220323 12:16:28.258" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
-<status status="PASS" starttime="20220323 12:16:28.258" endtime="20220323 12:16:28.258"/>
+<msg timestamp="20220504 17:34:44.598" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
+<status status="PASS" starttime="20220504 17:34:44.598" endtime="20220504 17:34:44.598"/>
 </kw>
 <kw name="POST" library="RequestsLibrary">
 <var>${response}</var>
@@ -467,37 +426,37 @@
 <arg>data={"objetos":[{"knwM110":{"cod_EMPRESA":0,"cod_FILIAL":0,"id_USUARIO_IMP":"string","dt_IMPORTACAO":"2022-03-21T21:22:44.321Z","aliq_PIS":0,"dt_REFERENCIA":"2022-03-21T21:22:44.321Z","nr_PROCESSO":"string","vl_ALIQ_PIS":0,"cd_436":"string","dm_AJUSTE":"string","vl_AJUSTE":0,"cd_438":"string","ds_AJUSTE":"string","dt_AJUSTE":"2022-03-21T21:22:44.321Z"}}]}</arg>
 <arg>headers=${ headers }</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20220323 12:16:29.327" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/blocoM/M110 
+<msg timestamp="20220504 17:34:46.003" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/blocoM/M110 
  path_url=/SPED_WEB/api/knw/v2/blocoM/M110 
  headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json', 'Content-Length': '353'} 
  body={"objetos":[{"knwM110":{"cod_EMPRESA":0,"cod_FILIAL":0,"id_USUARIO_IMP":"string","dt_IMPORTACAO":"2022-03-21T21:22:44.321Z","aliq_PIS":0,"dt_REFERENCIA":"2022-03-21T21:22:44.321Z","nr_PROCESSO":"string","vl_ALIQ_PIS":0,"cd_436":"string","dm_AJUSTE":"string","vl_AJUSTE":0,"cd_438":"string","ds_AJUSTE":"string","dt_AJUSTE":"2022-03-21T21:22:44.321Z"}}]} 
  </msg>
-<msg timestamp="20220323 12:16:29.327" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/blocoM/M110 
+<msg timestamp="20220504 17:34:46.003" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/blocoM/M110 
  status=200, reason=OK 
- headers={'Date': 'Wed, 23 Mar 2022 15:16:28 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=rtXVnQGRLyQ5QfPhNVb6d3tyLQ/ZVBTKrwzgBjc1UW0UVl76MufSBEaeSTAFZbWX+3X0r3Z7Bn1Zf+Drx2qV7NtO6ziNZ1i9xLfn4fH4UvIlRlDQf2WvR5Ywm7Bg; Expires=Wed, 30 Mar 2022 15:16:28 GMT; Path=/, AWSALBCORS=rtXVnQGRLyQ5QfPhNVb6d3tyLQ/ZVBTKrwzgBjc1UW0UVl76MufSBEaeSTAFZbWX+3X0r3Z7Bn1Zf+Drx2qV7NtO6ziNZ1i9xLfn4fH4UvIlRlDQf2WvR5Ywm7Bg; Expires=Wed, 30 Mar 2022 15:16:28 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
- body={"sucesso":false,"erro":"Integração processada com erros.","mensagens":["3 - NullPointerException"],"payload":null} 
+ headers={'Date': 'Wed, 04 May 2022 20:34:45 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=iLkWVyuJOCNiJV0fPOj7JT22aWe7cVQSCpDFdgd5XYovzZ2uHDskf4TLwtXkx1ZcB1IRFR/DHeSp0m6bWl8ng7NYNBpcRRcHUCLNdMNTKr9oxFv5UoJ6TmB0A5RT; Expires=Wed, 11 May 2022 20:34:45 GMT; Path=/, AWSALBCORS=iLkWVyuJOCNiJV0fPOj7JT22aWe7cVQSCpDFdgd5XYovzZ2uHDskf4TLwtXkx1ZcB1IRFR/DHeSp0m6bWl8ng7NYNBpcRRcHUCLNdMNTKr9oxFv5UoJ6TmB0A5RT; Expires=Wed, 11 May 2022 20:34:45 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
+ body={"sucesso":false,"erro":"Integração processada com erros.","mensagens":["1 - NullPointerException"],"payload":null} 
  </msg>
-<msg timestamp="20220323 12:16:29.327" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220323 12:16:28.258" endtime="20220323 12:16:29.327"/>
+<msg timestamp="20220504 17:34:46.004" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220504 17:34:44.598" endtime="20220504 17:34:46.004"/>
 </kw>
-<msg timestamp="20220323 12:16:29.328" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220323 12:16:28.257" endtime="20220323 12:16:29.328"/>
+<msg timestamp="20220504 17:34:46.004" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220504 17:34:44.597" endtime="20220504 17:34:46.004"/>
 </kw>
 <kw name="Status Should Be" library="RequestsLibrary">
 <arg>200</arg>
 <arg>${response}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" starttime="20220323 12:16:29.329" endtime="20220323 12:16:29.329"/>
+<status status="PASS" starttime="20220504 17:34:46.005" endtime="20220504 17:34:46.005"/>
 </kw>
-<status status="PASS" starttime="20220323 12:16:28.255" endtime="20220323 12:16:29.330"/>
+<status status="PASS" starttime="20220504 17:34:44.596" endtime="20220504 17:34:46.006"/>
 </test>
-<test id="s1-s8-t2" name="Import Bloco M410">
+<test id="s1-s8-t2" name="Import Bloco M410" line="15">
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${payload}</var>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220323 12:16:29.334" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20220323 12:16:29.333" endtime="20220323 12:16:29.334"/>
+<msg timestamp="20220504 17:34:46.008" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20220504 17:34:46.008" endtime="20220504 17:34:46.008"/>
 </kw>
 <kw name="POST M410" library="Import_Bloco_M">
 <var>${response}</var>
@@ -508,8 +467,8 @@
 <arg>X-Cnpj=11272927000105</arg>
 <arg>content-type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220323 12:16:29.336" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
-<status status="PASS" starttime="20220323 12:16:29.335" endtime="20220323 12:16:29.336"/>
+<msg timestamp="20220504 17:34:46.009" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
+<status status="PASS" starttime="20220504 17:34:46.009" endtime="20220504 17:34:46.009"/>
 </kw>
 <kw name="POST" library="RequestsLibrary">
 <var>${response}</var>
@@ -519,37 +478,37 @@
 <arg>data={"objetos":[{"knwM410":{"cod_EMPRESA":0,"cod_FILIAL":0,"id_USUARIO_IMP":"string","cd_PLANO_CONTA":"string","dt_IMPORTACAO":"2022-03-21T21:22:44.322Z","ds_COMPLEMENTAR":"string","cd_SIT_TRIB_PIS":"string","dt_REFERENCIA":"2022-03-21T21:22:44.322Z","cd_NATUREZA_RECEITA":"string","vl_RECEITA":0},"knw0500":{"COD_EMPRESA":0,"COD_FILIAL":0,"ID_USUARIO_IMP":"string","CD_PLANO_CONTA":"string","DT_INICIAL":"2022-03-21T21:22:44.322Z","DM_TIPO_CONTA":"string","CD_PLAN_CTA_TOT":"string","DS_PLANO_CONTA":"string","DM_NATUREZA":"string","DM_NIVEL":"string","DT_IMPORTACAO":"2022-03-21T21:22:44.322Z","DM_GERAL_AUX":"string","ID_ORDEM":0,"CD_REDUZIDA":"string","chave_REGISTRO":"string"}}]}</arg>
 <arg>headers=${ headers }</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20220323 12:16:30.146" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/blocoM/M410 
+<msg timestamp="20220504 17:34:46.398" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/blocoM/M410 
  path_url=/SPED_WEB/api/knw/v2/blocoM/M410 
  headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json', 'Content-Length': '681'} 
  body={"objetos":[{"knwM410":{"cod_EMPRESA":0,"cod_FILIAL":0,"id_USUARIO_IMP":"string","cd_PLANO_CONTA":"string","dt_IMPORTACAO":"2022-03-21T21:22:44.322Z","ds_COMPLEMENTAR":"string","cd_SIT_TRIB_PIS":"string","dt_REFERENCIA":"2022-03-21T21:22:44.322Z","cd_NATUREZA_RECEITA":"string","vl_RECEITA":0},"knw0500":{"COD_EMPRESA":0,"COD_FILIAL":0,"ID_USUARIO_IMP":"string","CD_PLANO_CONTA":"string","DT_INICIAL":"2022-03-21T21:22:44.322Z","DM_TIPO_CONTA":"string","CD_PLAN_CTA_TOT":"string","DS_PLANO_CONTA":"string","DM_NATUREZA":"string","DM_NIVEL":"string","DT_IMPORTACAO":"2022-03-21T21:22:44.322Z","DM_GERAL_AUX":"string","ID_ORDEM":0,"CD_REDUZIDA":"string","chave_REGISTRO":"string"}}]} 
  </msg>
-<msg timestamp="20220323 12:16:30.146" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/blocoM/M410 
+<msg timestamp="20220504 17:34:46.398" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/blocoM/M410 
  status=200, reason=OK 
- headers={'Date': 'Wed, 23 Mar 2022 15:16:29 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=2mYPu6QLFk4H4s22jX97313SrPJITX+v0VZdDSQJ/gnf2Br0LOjtgy7VWb0jM0m0K2HmBprAi9NyJhjYGKputoRq5fWXsLw13Y+pcQj8UqyW1VU0uath7euHBN4X; Expires=Wed, 30 Mar 2022 15:16:29 GMT; Path=/, AWSALBCORS=2mYPu6QLFk4H4s22jX97313SrPJITX+v0VZdDSQJ/gnf2Br0LOjtgy7VWb0jM0m0K2HmBprAi9NyJhjYGKputoRq5fWXsLw13Y+pcQj8UqyW1VU0uath7euHBN4X; Expires=Wed, 30 Mar 2022 15:16:29 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
- body={"sucesso":false,"erro":"Integração processada com erros.","mensagens":["3 - NullPointerException"],"payload":null} 
+ headers={'Date': 'Wed, 04 May 2022 20:34:46 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=RCxouOQL3lB2nEkV5qIVvp+HZsx1dUhQIXEfdk8IgEUl9N07tg0KWX/+ic8kZDdrjlW9yjFSP9x53XrLXnBYXf/9gcHsaXFHGVojvANeuAj93IaH+8q7NIBXFccB; Expires=Wed, 11 May 2022 20:34:46 GMT; Path=/, AWSALBCORS=RCxouOQL3lB2nEkV5qIVvp+HZsx1dUhQIXEfdk8IgEUl9N07tg0KWX/+ic8kZDdrjlW9yjFSP9x53XrLXnBYXf/9gcHsaXFHGVojvANeuAj93IaH+8q7NIBXFccB; Expires=Wed, 11 May 2022 20:34:46 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
+ body={"sucesso":false,"erro":"Integração processada com erros.","mensagens":["1 - NullPointerException"],"payload":null} 
  </msg>
-<msg timestamp="20220323 12:16:30.146" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220323 12:16:29.336" endtime="20220323 12:16:30.146"/>
+<msg timestamp="20220504 17:34:46.398" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220504 17:34:46.009" endtime="20220504 17:34:46.398"/>
 </kw>
-<msg timestamp="20220323 12:16:30.147" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220323 12:16:29.335" endtime="20220323 12:16:30.147"/>
+<msg timestamp="20220504 17:34:46.398" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220504 17:34:46.009" endtime="20220504 17:34:46.399"/>
 </kw>
 <kw name="Status Should Be" library="RequestsLibrary">
 <arg>200</arg>
 <arg>${response}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" starttime="20220323 12:16:30.148" endtime="20220323 12:16:30.148"/>
+<status status="PASS" starttime="20220504 17:34:46.399" endtime="20220504 17:34:46.400"/>
 </kw>
-<status status="PASS" starttime="20220323 12:16:29.332" endtime="20220323 12:16:30.149"/>
+<status status="PASS" starttime="20220504 17:34:46.007" endtime="20220504 17:34:46.400"/>
 </test>
-<test id="s1-s8-t3" name="Import Bloco M510">
+<test id="s1-s8-t3" name="Import Bloco M510" line="22">
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${payload}</var>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220323 12:16:30.153" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20220323 12:16:30.152" endtime="20220323 12:16:30.153"/>
+<msg timestamp="20220504 17:34:46.402" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20220504 17:34:46.401" endtime="20220504 17:34:46.402"/>
 </kw>
 <kw name="POST M510" library="Import_Bloco_M">
 <var>${response}</var>
@@ -560,8 +519,8 @@
 <arg>X-Cnpj=11272927000105</arg>
 <arg>content-type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220323 12:16:30.155" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
-<status status="PASS" starttime="20220323 12:16:30.155" endtime="20220323 12:16:30.155"/>
+<msg timestamp="20220504 17:34:46.402" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
+<status status="PASS" starttime="20220504 17:34:46.402" endtime="20220504 17:34:46.402"/>
 </kw>
 <kw name="POST" library="RequestsLibrary">
 <var>${response}</var>
@@ -571,37 +530,37 @@
 <arg>data={"objetos":[{"knwM510":{"cod_EMPRESA":0,"cod_FILIAL":0,"id_USUARIO_IMP":"string","dt_IMPORTACAO":"2022-03-21T21:22:44.323Z","aliq_COFINS":0,"dt_REFERENCIA":"2022-03-21T21:22:44.323Z","nr_PROCESSO":"string","vl_ALIQ_COFINS":0,"cd_436":"string","dm_AJUSTE":"string","vl_AJUSTE":0,"cd_438":"string","ds_AJUSTE":"string","dt_AJUSTE":"2022-03-21T21:22:44.323Z"}}]}</arg>
 <arg>headers=${ headers }</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20220323 12:16:30.965" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/blocoM/M510 
+<msg timestamp="20220504 17:34:46.862" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/blocoM/M510 
  path_url=/SPED_WEB/api/knw/v2/blocoM/M510 
  headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json', 'Content-Length': '359'} 
  body={"objetos":[{"knwM510":{"cod_EMPRESA":0,"cod_FILIAL":0,"id_USUARIO_IMP":"string","dt_IMPORTACAO":"2022-03-21T21:22:44.323Z","aliq_COFINS":0,"dt_REFERENCIA":"2022-03-21T21:22:44.323Z","nr_PROCESSO":"string","vl_ALIQ_COFINS":0,"cd_436":"string","dm_AJUSTE":"string","vl_AJUSTE":0,"cd_438":"string","ds_AJUSTE":"string","dt_AJUSTE":"2022-03-21T21:22:44.323Z"}}]} 
  </msg>
-<msg timestamp="20220323 12:16:30.965" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/blocoM/M510 
+<msg timestamp="20220504 17:34:46.862" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/blocoM/M510 
  status=200, reason=OK 
- headers={'Date': 'Wed, 23 Mar 2022 15:16:30 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=J+NCRGLKi01LyObhRSrDyMeAR0PXr/4ODcvU2C5VYCsYmCOcsojxge5c5qtfWHG5D4Daz11sG9HRBD65PLrMwCiVlcafoKMZtTW5+O84jVwNyoue2i3Wd3BqEKUG; Expires=Wed, 30 Mar 2022 15:16:29 GMT; Path=/, AWSALBCORS=J+NCRGLKi01LyObhRSrDyMeAR0PXr/4ODcvU2C5VYCsYmCOcsojxge5c5qtfWHG5D4Daz11sG9HRBD65PLrMwCiVlcafoKMZtTW5+O84jVwNyoue2i3Wd3BqEKUG; Expires=Wed, 30 Mar 2022 15:16:29 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
- body={"sucesso":false,"erro":"Integração processada com erros.","mensagens":["3 - NullPointerException"],"payload":null} 
+ headers={'Date': 'Wed, 04 May 2022 20:34:46 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=s9Zb9hZzpNlsdqYG8PHRp/FNUNxbU+2oJHuwQNgdvWD9WV1pHwzNCqr/euqPdSK0dZCggXM2zqiDOJXpfiF9+pYD4Te4yvpXgMblZDlJIgy9c63nMpqCY0TpI0Uw; Expires=Wed, 11 May 2022 20:34:46 GMT; Path=/, AWSALBCORS=s9Zb9hZzpNlsdqYG8PHRp/FNUNxbU+2oJHuwQNgdvWD9WV1pHwzNCqr/euqPdSK0dZCggXM2zqiDOJXpfiF9+pYD4Te4yvpXgMblZDlJIgy9c63nMpqCY0TpI0Uw; Expires=Wed, 11 May 2022 20:34:46 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
+ body={"sucesso":false,"erro":"Integração processada com erros.","mensagens":["1 - NullPointerException"],"payload":null} 
  </msg>
-<msg timestamp="20220323 12:16:30.966" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220323 12:16:30.156" endtime="20220323 12:16:30.966"/>
+<msg timestamp="20220504 17:34:46.862" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220504 17:34:46.403" endtime="20220504 17:34:46.862"/>
 </kw>
-<msg timestamp="20220323 12:16:30.966" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220323 12:16:30.154" endtime="20220323 12:16:30.966"/>
+<msg timestamp="20220504 17:34:46.862" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220504 17:34:46.402" endtime="20220504 17:34:46.862"/>
 </kw>
 <kw name="Status Should Be" library="RequestsLibrary">
 <arg>200</arg>
 <arg>${response}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" starttime="20220323 12:16:30.967" endtime="20220323 12:16:30.968"/>
+<status status="PASS" starttime="20220504 17:34:46.863" endtime="20220504 17:34:46.864"/>
 </kw>
-<status status="PASS" starttime="20220323 12:16:30.151" endtime="20220323 12:16:30.969"/>
+<status status="PASS" starttime="20220504 17:34:46.401" endtime="20220504 17:34:46.864"/>
 </test>
-<test id="s1-s8-t4" name="Import Bloco M810">
+<test id="s1-s8-t4" name="Import Bloco M810" line="29">
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${payload}</var>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220323 12:16:30.973" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20220323 12:16:30.972" endtime="20220323 12:16:30.973"/>
+<msg timestamp="20220504 17:34:46.866" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20220504 17:34:46.866" endtime="20220504 17:34:46.866"/>
 </kw>
 <kw name="POST M810" library="Import_Bloco_M">
 <var>${response}</var>
@@ -612,8 +571,8 @@
 <arg>X-Cnpj=11272927000105</arg>
 <arg>content-type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220323 12:16:30.975" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
-<status status="PASS" starttime="20220323 12:16:30.974" endtime="20220323 12:16:30.975"/>
+<msg timestamp="20220504 17:34:46.867" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
+<status status="PASS" starttime="20220504 17:34:46.867" endtime="20220504 17:34:46.867"/>
 </kw>
 <kw name="POST" library="RequestsLibrary">
 <var>${response}</var>
@@ -623,41 +582,41 @@
 <arg>data={"objetos":[{"knwM810":{"cod_EMPRESA":0,"cod_FILIAL":0,"id_USUARIO_IMP":"string","cd_PLANO_CONTA":"string","dt_IMPORTACAO":"2022-03-21T21:22:44.324Z","ds_COMPLEMENTAR":"string","cd_SIT_TRIB_COFINS":"string","dt_REFERENCIA":"2022-03-21T21:22:44.324Z","cd_NATUREZA_RECEITA":"string","vl_RECEITA":0},"knw0500":{"COD_EMPRESA":0,"COD_FILIAL":0,"ID_USUARIO_IMP":"string","CD_PLANO_CONTA":"string","DT_INICIAL":"2022-03-21T21:22:44.324Z","DM_TIPO_CONTA":"string","CD_PLAN_CTA_TOT":"string","DS_PLANO_CONTA":"string","DM_NATUREZA":"string","DM_NIVEL":"string","DT_IMPORTACAO":"2022-03-21T21:22:44.324Z","DM_GERAL_AUX":"string","ID_ORDEM":0,"CD_REDUZIDA":"string","chave_REGISTRO":"string"}}]}</arg>
 <arg>headers=${ headers }</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20220323 12:16:31.580" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/blocoM/M810 
+<msg timestamp="20220504 17:34:47.261" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/blocoM/M810 
  path_url=/SPED_WEB/api/knw/v2/blocoM/M810 
  headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json', 'Content-Length': '684'} 
  body={"objetos":[{"knwM810":{"cod_EMPRESA":0,"cod_FILIAL":0,"id_USUARIO_IMP":"string","cd_PLANO_CONTA":"string","dt_IMPORTACAO":"2022-03-21T21:22:44.324Z","ds_COMPLEMENTAR":"string","cd_SIT_TRIB_COFINS":"string","dt_REFERENCIA":"2022-03-21T21:22:44.324Z","cd_NATUREZA_RECEITA":"string","vl_RECEITA":0},"knw0500":{"COD_EMPRESA":0,"COD_FILIAL":0,"ID_USUARIO_IMP":"string","CD_PLANO_CONTA":"string","DT_INICIAL":"2022-03-21T21:22:44.324Z","DM_TIPO_CONTA":"string","CD_PLAN_CTA_TOT":"string","DS_PLANO_CONTA":"string","DM_NATUREZA":"string","DM_NIVEL":"string","DT_IMPORTACAO":"2022-03-21T21:22:44.324Z","DM_GERAL_AUX":"string","ID_ORDEM":0,"CD_REDUZIDA":"string","chave_REGISTRO":"string"}}]} 
  </msg>
-<msg timestamp="20220323 12:16:31.580" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/blocoM/M810 
+<msg timestamp="20220504 17:34:47.261" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/blocoM/M810 
  status=200, reason=OK 
- headers={'Date': 'Wed, 23 Mar 2022 15:16:30 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=EeeWFLLEQKO3v72clVZODdM22ERAMkSMc1Wyy1fcJEmI9oYdwgLQKITgtozfjH5j4CAmUUT27YBWXLmQeuZMD+5fWAyPbkdCL4rOUpQm74fMtc+qsGqFfbKuRySM; Expires=Wed, 30 Mar 2022 15:16:30 GMT; Path=/, AWSALBCORS=EeeWFLLEQKO3v72clVZODdM22ERAMkSMc1Wyy1fcJEmI9oYdwgLQKITgtozfjH5j4CAmUUT27YBWXLmQeuZMD+5fWAyPbkdCL4rOUpQm74fMtc+qsGqFfbKuRySM; Expires=Wed, 30 Mar 2022 15:16:30 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
- body={"sucesso":false,"erro":"Integração processada com erros.","mensagens":["3 - NullPointerException"],"payload":null} 
+ headers={'Date': 'Wed, 04 May 2022 20:34:47 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=jJIs0JG/D9pv16iL1SEBDm2fvDoT/MGvg7ZxpyeHMRh3cA+FdHI3dR7DQXeYoquQXasQiHJW9Ed19XfFNvFcuUJOayQ8yXWnWsdNtHbGzxxejq/zhTwVM/LGUvKf; Expires=Wed, 11 May 2022 20:34:47 GMT; Path=/, AWSALBCORS=jJIs0JG/D9pv16iL1SEBDm2fvDoT/MGvg7ZxpyeHMRh3cA+FdHI3dR7DQXeYoquQXasQiHJW9Ed19XfFNvFcuUJOayQ8yXWnWsdNtHbGzxxejq/zhTwVM/LGUvKf; Expires=Wed, 11 May 2022 20:34:47 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
+ body={"sucesso":false,"erro":"Integração processada com erros.","mensagens":["1 - NullPointerException"],"payload":null} 
  </msg>
-<msg timestamp="20220323 12:16:31.580" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220323 12:16:30.975" endtime="20220323 12:16:31.580"/>
+<msg timestamp="20220504 17:34:47.262" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220504 17:34:46.867" endtime="20220504 17:34:47.262"/>
 </kw>
-<msg timestamp="20220323 12:16:31.581" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220323 12:16:30.973" endtime="20220323 12:16:31.581"/>
+<msg timestamp="20220504 17:34:47.262" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220504 17:34:46.867" endtime="20220504 17:34:47.262"/>
 </kw>
 <kw name="Status Should Be" library="RequestsLibrary">
 <arg>200</arg>
 <arg>${response}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" starttime="20220323 12:16:31.582" endtime="20220323 12:16:31.582"/>
+<status status="PASS" starttime="20220504 17:34:47.262" endtime="20220504 17:34:47.263"/>
 </kw>
-<status status="PASS" starttime="20220323 12:16:30.971" endtime="20220323 12:16:31.583"/>
+<status status="PASS" starttime="20220504 17:34:46.865" endtime="20220504 17:34:47.264"/>
 </test>
 <doc>Suite de testes de API's de importação do Bloco M</doc>
-<status status="PASS" starttime="20220323 12:16:28.210" endtime="20220323 12:16:31.586"/>
+<status status="PASS" starttime="20220504 17:34:44.575" endtime="20220504 17:34:47.265"/>
 </suite>
 <suite id="s1-s9" name="Import Geral Suite" source="C:\Sovos\cloud_fiscal\API_KNW\tests\Import_Geral_Suite.robot">
-<test id="s1-s9-t1" name="Import Pessoas">
+<test id="s1-s9-t1" name="Import Pessoas" line="11">
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${payload}</var>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220323 12:16:31.636" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20220323 12:16:31.635" endtime="20220323 12:16:31.636"/>
+<msg timestamp="20220504 17:34:47.288" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20220504 17:34:47.288" endtime="20220504 17:34:47.288"/>
 </kw>
 <kw name="POST Import Pessoas" library="Import_Geral">
 <var>${response}</var>
@@ -668,68 +627,70 @@
 <arg>X-Cnpj=11272927000105</arg>
 <arg>content-type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220323 12:16:31.638" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
-<status status="PASS" starttime="20220323 12:16:31.637" endtime="20220323 12:16:31.638"/>
+<msg timestamp="20220504 17:34:47.289" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
+<status status="PASS" starttime="20220504 17:34:47.289" endtime="20220504 17:34:47.289"/>
 </kw>
 <kw name="POST" library="RequestsLibrary">
 <var>${response}</var>
 <arg>${API_USERS}/pessoas</arg>
 <arg>json=${payload}</arg>
 <arg>expected_status=any</arg>
-<arg>data={"objetos":[{"knw0150":{"COD_EMPRESA":0,"COD_FILIAL":0,"ID_USUARIO_IMP":"string","DT_INICIAL":"2022-03-21T20:55:38.977Z","DT_IMPORTACAO":"2022-03-21T20:55:38.977Z","chave_REGISTRO":"string","NM_RAZAO_SOCIAL":"string","DS_ENDERECO":"string","DS_BAIRRO":"string","NR_CEP":"string","NR_CNPJ_CPF":"string","NR_INSCR_EST":"string","NR_INSCR_MUNIC":"string","NR_CEI":"string","NR_INSCR_SUBST":"string","CD_SUFRAMA":"string","NR_NUMERO":"string","CD_PESSOA":"string","DS_COMPLEMENTO":"string","NR_CEP_CP":"string","NR_CP":"string","NR_FONE":"string","NR_FAX":"string","DM_RELACIONADO":"string","DT_INI_REL":"2022-03-21T20:55:38.977Z","DT_FIN_REL":"2022-03-21T20:55:38.977Z","NR_NIT":"string","CD_CNAE":"string","NR_CATEGORIA":"string","CD_MUNICIPIO":"string","CD_PAIS":"string","DS_EMAIL":"string","DM_NATUREZA_EMPRESA":"string","DM_REGIME_TRIBUTARIO":"string","NM_TP_LOGRADOURO":"string","NM_TITULO_LOGRADOURO":"string","DM_CONTRIBUINTE":"string"}}]}</arg>
+<arg>data={"objetos":[{"knw0150":{"COD_EMPRESA":"1","COD_FILIAL":"1","CD_PESSOA":"P8489572","DT_INICIAL":"2022-03-29T20:02:35.771Z","DT_IMPORTACAO":"2022-03-29T20:02:35.771Z","DS_ENDERECO":"Rua Brigadeiro Faria Lima","NM_RAZAO_SOCIAL":"Juarez G Mariano","DS_BAIRRO":"Canto do Forte","NR_CEP":"11700630","NR_CNPJ_CPF":"43405835887","NR_INSCR_MUNIC":"001861883","CD_CNAE":"0123","NR_NUMERO":"79","CD_MUNICIPIO":"3541000","DS_EMAIL":"jgmar.construcoes@gmail.com","CD_PAIS":"1058"}}]}</arg>
 <arg>headers=${ headers }</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20220323 12:16:32.297" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/pessoas 
+<msg timestamp="20220504 17:34:47.787" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/pessoas 
  path_url=/SPED_WEB/api/knw/v2/pessoas 
- headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json', 'Content-Length': '944'} 
- body={"objetos":[{"knw0150":{"COD_EMPRESA":0,"COD_FILIAL":0,"ID_USUARIO_IMP":"string","DT_INICIAL":"2022-03-21T20:55:38.977Z","DT_IMPORTACAO":"2022-03-21T20:55:38.977Z","chave_REGISTRO":"string","NM_RAZAO_SOCIAL":"string","DS_ENDERECO":"string","DS_BAIRRO":"string","NR_CEP":"string","NR_CNPJ_CPF":"string","NR_INSCR_EST":"string","NR_INSCR_MUNIC":"string","NR_CEI":"string","NR_INSCR_SUBST":"string","CD_SUFRAMA":"string","NR_NUMERO":"string","CD_PESSOA":"string","DS_COMPLEMENTO":"string","NR_CEP_CP":"string","NR_CP":"string","NR_FONE":"string","NR_FAX":"string","DM_RELACIONADO":"string","DT_INI_REL":"2022-03-21T20:55:38.977Z","DT_FIN_REL":"2022-03-21T20:55:38.977Z","NR_NIT":"string","CD_CNAE":"string","NR_CATEGORIA":"string","CD_MUNICIPIO":"string","CD_PAIS":"string","DS_EMAIL":"string","DM_NATUREZA_EMPRESA":"string","DM_REGIME_TRIBUTARIO":"string","NM_TP_LOGRADOURO":"string","NM_TITULO_LOGRADOURO":"string","DM_CONTRIBUINTE":"string"}}]} 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json', 'Content-Length': '470'} 
+ body={"objetos":[{"knw0150":{"COD_EMPRESA":"1","COD_FILIAL":"1","CD_PESSOA":"P8489572","DT_INICIAL":"2022-03-29T20:02:35.771Z","DT_IMPORTACAO":"2022-03-29T20:02:35.771Z","DS_ENDERECO":"Rua Brigadeiro Faria Lima","NM_RAZAO_SOCIAL":"Juarez G Mariano","DS_BAIRRO":"Canto do Forte","NR_CEP":"11700630","NR_CNPJ_CPF":"43405835887","NR_INSCR_MUNIC":"001861883","CD_CNAE":"0123","NR_NUMERO":"79","CD_MUNICIPIO":"3541000","DS_EMAIL":"jgmar.construcoes@gmail.com","CD_PAIS":"1058"}}]} 
  </msg>
-<msg timestamp="20220323 12:16:32.297" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/pessoas 
+<msg timestamp="20220504 17:34:47.788" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/pessoas 
  status=200, reason=OK 
- headers={'Date': 'Wed, 23 Mar 2022 15:16:31 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=Kq/2fCS7fuJnp6IbT+cbX7jo29CxyR/pf387ufkRPJ8m96UIhS55lj3wFzrqSwfWFmImaOFBBD1TybY6IwKJXxpADfWMczsAkGhkSfcBHZNotpvlHQ+FbjHlZy2c; Expires=Wed, 30 Mar 2022 15:16:31 GMT; Path=/, AWSALBCORS=Kq/2fCS7fuJnp6IbT+cbX7jo29CxyR/pf387ufkRPJ8m96UIhS55lj3wFzrqSwfWFmImaOFBBD1TybY6IwKJXxpADfWMczsAkGhkSfcBHZNotpvlHQ+FbjHlZy2c; Expires=Wed, 30 Mar 2022 15:16:31 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
- body={"sucesso":false,"erro":"Integração processada com erros.","mensagens":["1 - NullPointerException"],"payload":null} 
+ headers={'Date': 'Wed, 04 May 2022 20:34:47 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=f3BrlLb1Py0DbFTto49JHxFXQ37hnxRzJOKJoT7uhpzGM+IUk81iHLuH3BjtiGEQn/EIhWy2QgjlxRx0V2LEVwNIbGAYZOYmbCaILuHJ6ifgJsl7D/U9z68ykD9d; Expires=Wed, 11 May 2022 20:34:47 GMT; Path=/, AWSALBCORS=f3BrlLb1Py0DbFTto49JHxFXQ37hnxRzJOKJoT7uhpzGM+IUk81iHLuH3BjtiGEQn/EIhWy2QgjlxRx0V2LEVwNIbGAYZOYmbCaILuHJ6ifgJsl7D/U9z68ykD9d; Expires=Wed, 11 May 2022 20:34:47 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
+ body={"sucesso":true,"erro":null,"mensagens":null,"payload":null} 
  </msg>
-<msg timestamp="20220323 12:16:32.298" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220323 12:16:31.639" endtime="20220323 12:16:32.299"/>
+<msg timestamp="20220504 17:34:47.788" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220504 17:34:47.289" endtime="20220504 17:34:47.788"/>
 </kw>
-<msg timestamp="20220323 12:16:32.299" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220323 12:16:31.637" endtime="20220323 12:16:32.299"/>
+<msg timestamp="20220504 17:34:47.788" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220504 17:34:47.289" endtime="20220504 17:34:47.788"/>
 </kw>
 <kw name="Status Should Be" library="RequestsLibrary">
 <arg>200</arg>
 <arg>${response}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" starttime="20220323 12:16:32.301" endtime="20220323 12:16:32.301"/>
+<status status="PASS" starttime="20220504 17:34:47.789" endtime="20220504 17:34:47.789"/>
 </kw>
-<status status="PASS" starttime="20220323 12:16:31.634" endtime="20220323 12:16:32.302"/>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${response.json()}[sucesso]</arg>
+<arg>${true}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220504 17:34:47.789" endtime="20220504 17:34:47.790"/>
+</kw>
+<status status="PASS" starttime="20220504 17:34:47.287" endtime="20220504 17:34:47.790"/>
 </test>
 <doc>Suite de testes de API's de importações</doc>
-<status status="PASS" starttime="20220323 12:16:31.590" endtime="20220323 12:16:32.305"/>
+<status status="PASS" starttime="20220504 17:34:47.267" endtime="20220504 17:34:47.792"/>
 </suite>
 <suite id="s1-s10" name="Retida Fonte Suite" source="C:\Sovos\cloud_fiscal\API_KNW\tests\Retida_Fonte_Suite.robot">
-<test id="s1-s10-t1" name="KNW F600 Retida Fonte">
+<test id="s1-s10-t1" name="KNW F600 Retida Fonte" line="10">
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${payload}</var>
 <arg>Content-Type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220323 12:16:32.354" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20220323 12:16:32.353" endtime="20220323 12:16:32.354"/>
+<msg timestamp="20220504 17:34:47.816" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20220504 17:34:47.816" endtime="20220504 17:34:47.816"/>
 </kw>
 <kw name="POST Retida Fonte" library="Retida_Fonte">
 <var>${response}</var>
-<arg>${payload}</arg>
+<arg>json=${payload}</arg>
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${headers}</var>
 <arg>X-Token=01032007</arg>
 <arg>X-Cnpj=11272927000105</arg>
 <arg>content-type=application/json</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20220323 12:16:32.356" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
-<status status="PASS" starttime="20220323 12:16:32.356" endtime="20220323 12:16:32.356"/>
-=======
-<msg timestamp="20220321 16:56:56.497" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
-<status status="PASS" starttime="20220321 16:56:56.497" endtime="20220321 16:56:56.497"/>
->>>>>>> 1408b54774b1dc9bbd1e1eda362e3103ba79e848
+<msg timestamp="20220504 17:34:47.817" level="INFO">${headers} = {'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json'}</msg>
+<status status="PASS" starttime="20220504 17:34:47.817" endtime="20220504 17:34:47.817"/>
 </kw>
 <kw name="POST" library="RequestsLibrary">
 <var>${response}</var>
@@ -739,77 +700,52 @@
 <arg>data={"objetos":[{"knwScF600":{"COD_EMPRESA":1,"COD_FILIAL":1,"ID_USUARIO_IMP":"NETSUITE NFSE ITG","chave_REGISTRO":"5952","DT_REFERENCIA":"2022-06-1T15:02:50.764Z","DM_NAT_RETENCAO":"1","DT_REC_RETENCAO":"2021-09-25T07:00:00.000Z","VL_BC_RETENCAO":100.00,"VL_RETIDO_FONT":1922.3600000000001,"CD_RECEITA":"5952","DM_NAT_RECEITA":"1","NR_CNPJ_FONTE":"02359572000455","VL_RETIDO_PIS":706.06,"VL_RETIDO_COFINS":3515.64,"DM_DECLARANTE":"0"}}]}</arg>
 <arg>headers=${ headers }</arg>
 <doc>Sends a POST request.</doc>
-<<<<<<< HEAD
-<msg timestamp="20220323 12:16:33.029" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/contribuicaoRetidaFonte 
-=======
-<msg timestamp="20220321 16:56:57.070" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/contribuicaoRetidaFonte 
->>>>>>> 1408b54774b1dc9bbd1e1eda362e3103ba79e848
+<msg timestamp="20220504 17:34:48.266" level="INFO">POST Request : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/contribuicaoRetidaFonte 
  path_url=/SPED_WEB/api/knw/v2/contribuicaoRetidaFonte 
  headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'X-Token': '01032007', 'X-Cnpj': '11272927000105', 'content-type': 'application/json', 'Content-Length': '434'} 
  body={"objetos":[{"knwScF600":{"COD_EMPRESA":1,"COD_FILIAL":1,"ID_USUARIO_IMP":"NETSUITE NFSE ITG","chave_REGISTRO":"5952","DT_REFERENCIA":"2022-06-1T15:02:50.764Z","DM_NAT_RETENCAO":"1","DT_REC_RETENCAO":"2021-09-25T07:00:00.000Z","VL_BC_RETENCAO":100.00,"VL_RETIDO_FONT":1922.3600000000001,"CD_RECEITA":"5952","DM_NAT_RECEITA":"1","NR_CNPJ_FONTE":"02359572000455","VL_RETIDO_PIS":706.06,"VL_RETIDO_COFINS":3515.64,"DM_DECLARANTE":"0"}}]} 
  </msg>
-<<<<<<< HEAD
-<msg timestamp="20220323 12:16:33.029" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/contribuicaoRetidaFonte 
+<msg timestamp="20220504 17:34:48.266" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/contribuicaoRetidaFonte 
  status=200, reason=OK 
- headers={'Date': 'Wed, 23 Mar 2022 15:16:32 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=kISIS67Sy+5fdXjL8RUndjmc8w/EYef0UVSIVXPyIfp0n/nsVrRq6IdQ7IyTWsBFaoz+DONu7f3uFOd0rWZp+T6eTsaNuefyUEOzH3RymxwUbOahC/Uax4Gyutdy; Expires=Wed, 30 Mar 2022 15:16:32 GMT; Path=/, AWSALBCORS=kISIS67Sy+5fdXjL8RUndjmc8w/EYef0UVSIVXPyIfp0n/nsVrRq6IdQ7IyTWsBFaoz+DONu7f3uFOd0rWZp+T6eTsaNuefyUEOzH3RymxwUbOahC/Uax4Gyutdy; Expires=Wed, 30 Mar 2022 15:16:32 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
+ headers={'Date': 'Wed, 04 May 2022 20:34:48 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=HGWHoe5R2rw2alc+ab7HzV12Mgvd9MydFmtniSjz1cybjli3iUTtBGinzVrz1VV3+ptzA6EISzhShgz62sJVVLlKQb83sHtN6mHyuVCV4S3THb5Zw8Xij69netal; Expires=Wed, 11 May 2022 20:34:48 GMT; Path=/, AWSALBCORS=HGWHoe5R2rw2alc+ab7HzV12Mgvd9MydFmtniSjz1cybjli3iUTtBGinzVrz1VV3+ptzA6EISzhShgz62sJVVLlKQb83sHtN6mHyuVCV4S3THb5Zw8Xij69netal; Expires=Wed, 11 May 2022 20:34:48 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
  body={"sucesso":true,"erro":null,"mensagens":null,"payload":null} 
  </msg>
-<msg timestamp="20220323 12:16:33.030" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220323 12:16:32.356" endtime="20220323 12:16:33.030"/>
+<msg timestamp="20220504 17:34:48.266" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220504 17:34:47.817" endtime="20220504 17:34:48.266"/>
 </kw>
-<msg timestamp="20220323 12:16:33.030" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220323 12:16:32.355" endtime="20220323 12:16:33.030"/>
-=======
-<msg timestamp="20220321 16:56:57.070" level="INFO">POST Response : url=http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2/contribuicaoRetidaFonte 
- status=200, reason=OK 
- headers={'Date': 'Mon, 21 Mar 2022 19:56:55 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Set-Cookie': 'AWSALB=zPNmTuT9P8xnex6LgJXHaHUT0K47ZRm8hJa0P7mjNVruc5OREPZn8NGxnNV5d17OnE7DO8eFbeP9V9RSmzADoekbzN7cTerwQ0NmrIRpBLvPbY6ellOX5gqJN3ME; Expires=Mon, 28 Mar 2022 19:56:55 GMT; Path=/, AWSALBCORS=zPNmTuT9P8xnex6LgJXHaHUT0K47ZRm8hJa0P7mjNVruc5OREPZn8NGxnNV5d17OnE7DO8eFbeP9V9RSmzADoekbzN7cTerwQ0NmrIRpBLvPbY6ellOX5gqJN3ME; Expires=Mon, 28 Mar 2022 19:56:55 GMT; Path=/; SameSite=None', 'Server': 'Apache-Coyote/1.1', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Access-Control-Allow-Origin, Access-Control-Allow-Headers, Access-Control-Request-Method, Access-Control-Request-Headers, origin, accept, authorization, X-Requested-With, content-type, x-fit-auth-token, x-fit-refresh-token, X-Usuario, X-Senha, X-Licenca', 'Access-Control-Allow-Methods': 'GET, OPTIONS, HEAD, PUT, POST', 'Access-Control-Request-Method': '*', 'X-Frame-Options': 'DENY'} 
- body={"sucesso":true,"erro":null,"mensagens":null,"payload":null} 
- </msg>
-<msg timestamp="20220321 16:56:57.070" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220321 16:56:56.497" endtime="20220321 16:56:57.070"/>
-</kw>
-<msg timestamp="20220321 16:56:57.070" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20220321 16:56:56.496" endtime="20220321 16:56:57.070"/>
->>>>>>> 1408b54774b1dc9bbd1e1eda362e3103ba79e848
+<msg timestamp="20220504 17:34:48.267" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20220504 17:34:47.817" endtime="20220504 17:34:48.267"/>
 </kw>
 <kw name="Status Should Be" library="RequestsLibrary">
 <arg>200</arg>
 <arg>${response}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<<<<<<< HEAD
-<status status="PASS" starttime="20220323 12:16:33.031" endtime="20220323 12:16:33.032"/>
+<status status="PASS" starttime="20220504 17:34:48.267" endtime="20220504 17:34:48.268"/>
 </kw>
-<status status="PASS" starttime="20220323 12:16:32.352" endtime="20220323 12:16:33.032"/>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${response.json()}[sucesso]</arg>
+<arg>${true}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220504 17:34:48.268" endtime="20220504 17:34:48.269"/>
+</kw>
+<status status="PASS" starttime="20220504 17:34:47.815" endtime="20220504 17:34:48.269"/>
 </test>
 <doc>Session route test suite</doc>
-<status status="PASS" starttime="20220323 12:16:32.308" endtime="20220323 12:16:33.035"/>
+<status status="PASS" starttime="20220504 17:34:47.793" endtime="20220504 17:34:48.270"/>
 </suite>
-<status status="PASS" starttime="20220323 12:16:22.373" endtime="20220323 12:16:33.039"/>
+<status status="FAIL" starttime="20220504 17:34:40.023" endtime="20220504 17:34:48.273"/>
 </suite>
 <statistics>
 <total>
-<stat pass="13" fail="0" skip="0">All Tests</stat>
-=======
-<status status="PASS" starttime="20220321 16:56:57.071" endtime="20220321 16:56:57.071"/>
-</kw>
-<status status="PASS" starttime="20220321 16:56:56.495" endtime="20220321 16:56:57.071"/>
-</test>
-<doc>Session route test suite</doc>
-<status status="FAIL" starttime="20220321 16:56:55.687" endtime="20220321 16:56:57.073"/>
-</suite>
-<statistics>
-<total>
-<stat pass="1" fail="1" skip="0">All Tests</stat>
->>>>>>> 1408b54774b1dc9bbd1e1eda362e3103ba79e848
+<stat pass="12" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<<<<<<< HEAD
-<stat pass="13" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1" name="Ativo Imobilizado Suite">Tests.Ativo Imobilizado Suite</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s2" name="Atualizacao NF Suite">Tests.Atualizacao NF Suite</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s3" name="Consult Dados Emp Suite">Tests.Consult Dados Emp Suite</stat>
+<stat pass="12" fail="1" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Ativo Imobilizado">Tests.Ativo Imobilizado</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s2" name="Atualizacao NF Suite">Tests.Atualizacao NF Suite</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s3" name="Consultar Empresas">Tests.Consultar Empresas</stat>
 <stat pass="1" fail="0" skip="0" id="s1-s4" name="Controle Creditos Suite">Tests.Controle Creditos Suite</stat>
 <stat pass="1" fail="0" skip="0" id="s1-s5" name="Doc Gerador Credito Suite">Tests.Doc Gerador Credito Suite</stat>
 <stat pass="1" fail="0" skip="0" id="s1-s6" name="Estoque Escriturado Suite">Tests.Estoque Escriturado Suite</stat>
@@ -817,9 +753,6 @@
 <stat pass="4" fail="0" skip="0" id="s1-s8" name="Import BlocoM Suite">Tests.Import BlocoM Suite</stat>
 <stat pass="1" fail="0" skip="0" id="s1-s9" name="Import Geral Suite">Tests.Import Geral Suite</stat>
 <stat pass="1" fail="0" skip="0" id="s1-s10" name="Retida Fonte Suite">Tests.Retida Fonte Suite</stat>
-=======
-<stat pass="1" fail="1" skip="0" id="s1" name="Knw">Knw</stat>
->>>>>>> 1408b54774b1dc9bbd1e1eda362e3103ba79e848
 </suite>
 </statistics>
 <errors>

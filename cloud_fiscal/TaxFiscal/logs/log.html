@@ -5,7 +5,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="Robot Framework 4.1.2 (Python 3.10.0 on win32)" name="Generator">
+<meta content="Robot Framework 5.0 (Python 3.10.0 on win32)" name="Generator">
 <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKcAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAqAAAAAAAAAAAAAAAAAAAALIAAAD/AAAA4AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA4AAAAP8AAACxAAAAAAAAAKYAAAD/AAAAuwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/AAAA/wAAAKkAAAD6AAAAzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN8AAAD/AAAA+gAAAMMAAAAAAAAAAgAAAGsAAABrAAAAawAAAGsAAABrAAAAawAAAGsAAABrAAAADAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAIsAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAANEAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAAAAAAAAMgAAADIAAAAyAAAAMgAAADIAAAAyAAAAMgAAADIAAAAFAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAADwAAAB8AAAAAAAAAGAAAABcAAAAAAAAAH8AAABKAAAAAAAAAAAAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAADCAAAA/wAAACkAAADqAAAA4QAAAAAAAAD7AAAA/wAAALAAAAAGAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAIwAAAP4AAAD/AAAA/wAAAGAAAAAAAAAAAAAAAMkAAAD/AAAAigAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAAAAAAAIAAAAcAAAABkAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAA2gAAAP8AAAD7AAAAywAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN4AAAD/AAAAqwAAAP8AAACvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALIAAAD/AAAAsgAAAAAAAAC5AAAA/wAAAMoAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMkAAAD/AAAAvAAAAAAAAAAAAAAAAAAAAKwAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAArQAAAAAAAAAAwAMAAIABAAAf+AAAP/wAAD/8AAAgBAAAP/wAAD/8AAA//AAAJIwAADHEAAA//AAAP/wAAB/4AACAAQAAwAMAAA==">
 <style media="all" type="text/css">
 /* Generic and misc styles */
@@ -318,6 +318,9 @@ th.stats-col-graph:hover {
     top: 0;
     padding: 3px;
     cursor: default;
+}
+.element-header .label {
+    margin-right: 0.5em;
 }
 .name {
     font-weight: bold;
@@ -966,6 +969,7 @@ window.model = (function () {
     }
     function Keyword(data) {
         var kw = createModelObject(data);
+        var flatTypes = ['RETURN', 'BREAK', 'CONTINUE'];
         kw.libname = data.libname;
         kw.fullName = (kw.libname ? kw.libname + '.' : '') + kw.name;
         kw.type = data.type;
@@ -1350,8 +1354,8 @@ window.testdata = function () {
     var _statistics = null;
     var LEVELS = ['TRACE', 'DEBUG', 'INFO', 'WARN', 'ERROR', 'FAIL', 'SKIP'];
     var STATUSES = ['FAIL', 'PASS', 'SKIP', 'NOT RUN'];
-    var KEYWORD_TYPES = ['KEYWORD', 'SETUP', 'TEARDOWN', 'FOR', 'VAR', 'IF', 'ELSE IF', 'ELSE'];
-    var MESSAGE_TYPE = 8;
+    var KEYWORD_TYPES = ['KEYWORD', 'SETUP', 'TEARDOWN', 'FOR', 'ITERATION', 'IF', 'ELSE IF', 'ELSE', 'RETURN',
+                         'TRY', 'EXCEPT', 'FINALLY', 'WHILE', 'CONTINUE', 'BREAK'];
     function addElement(elem) {
         if (!elem.id)
             elem.id = uniqueId();
@@ -1372,10 +1376,10 @@ window.testdata = function () {
                 elapsed];
     }
     function createMessage(element, strings) {
-        return model.Message(LEVELS[element[2]],
-                             util.timestamp(element[1]),
-                             strings.get(element[3]),
-                             strings.get(element[4]));
+        return model.Message(LEVELS[element[1]],
+                             util.timestamp(element[0]),
+                             strings.get(element[2]),
+                             strings.get(element[3]));
     }
     function parseStatus(stats) {
         return STATUSES[stats[0]];
@@ -1386,7 +1390,7 @@ window.testdata = function () {
         };
     }
     function createBodyItem(parent, element, strings, index) {
-        if (element[0] == MESSAGE_TYPE)
+        if (element.length < 5)
             return createMessage(element, strings);
         var messages = util.filter(parent.children(), function (child) {
             return child.type == 'message';
@@ -1799,25 +1803,25 @@ function stopPropagation(event) {
 window.output = {};
 </script>
 <script type="text/javascript">
-window.output["suite"] = [1,2,3,4,[],[1,0,15383],[],[[5,0,0,[],[1,2677,12614],[[1,6,7,0,0,0,0,0,[1,2681,7951],[[0,8,9,0,10,11,0,12,[1,2681,1229],[[8,2681,2,13],[8,3910,2,14]]],[0,15,9,0,16,17,0,12,[1,3911,18],[[8,3912,2,18],[8,3929,2,19],[8,3929,2,20]]],[0,21,9,0,22,23,0,12,[1,3929,2837],[[8,6766,2,24]]],[0,25,9,0,26,27,0,28,[1,6766,1034],[[8,6766,2,29]]],[0,25,9,0,26,30,0,28,[1,7801,1019],[[8,7801,2,31]]],[0,32,9,0,33,34,0,28,[1,8821,1045],[]],[0,35,9,0,36,37,0,38,[1,9867,764],[[8,10631,2,39]]]]],[0,40,41,0,0,0,0,0,[1,10632,3400],[[0,42,9,0,43,44,0,28,[1,10633,1325],[]],[0,42,9,0,43,45,0,28,[1,11959,1045],[]],[0,32,9,0,33,46,0,28,[1,13004,1028],[]]]],[0,32,9,0,33,47,0,28,[1,14033,1060],[]],[2,48,7,0,0,0,0,0,[1,15094,196],[[0,49,9,0,50,0,0,51,[1,15095,195],[[8,15290,2,52]]]]]]]],[],[1,1,0,0]];
+window.output["suite"] = [1,2,3,0,[],[0,0,17579],[[4,5,6,7,[],[1,32,11794],[],[[8,0,0,[],[1,2245,9530],[[1,9,10,0,0,0,0,0,[1,2248,8182],[[0,11,12,0,13,14,0,15,[1,2248,3580],[[2249,2,16],[5828,2,17]]],[0,18,12,0,19,20,0,15,[1,5828,17],[[5829,2,21],[5844,2,22],[5845,2,23]]],[0,24,12,0,25,26,0,15,[1,5845,3082],[[8927,2,27]]],[0,28,12,0,29,30,0,31,[1,8927,46],[[8927,2,32]]],[0,28,12,0,29,33,0,31,[1,8973,27],[[8974,2,34]]],[0,35,12,0,36,37,0,31,[1,9000,587],[]],[0,38,12,0,39,40,0,41,[1,9587,843],[[10429,2,42]]]]],[0,43,44,0,0,0,0,0,[1,10430,695],[[0,45,12,0,46,47,0,31,[1,10431,120],[]],[0,45,12,0,46,48,0,31,[1,10551,211],[]],[0,35,12,0,36,49,0,31,[1,10762,363],[]]]],[0,50,12,0,51,52,0,31,[1,11126,457],[]],[0,53,12,0,54,55,0,31,[1,11583,47],[]],[0,38,12,0,39,56,0,41,[1,11631,18],[[11649,2,57]]],[2,58,10,0,0,0,0,0,[1,11650,125],[[0,59,12,0,60,0,0,61,[1,11650,125],[[11775,2,62]]]]]]]],[],[1,1,0,0]],[63,64,65,66,[],[0,11829,5746],[],[[67,0,0,[],[0,11864,5662,68],[[1,9,10,0,0,0,0,0,[0,11868,5644],[[0,11,12,0,13,14,0,15,[1,11868,2340],[[11869,2,69],[14208,2,70]]],[0,18,12,0,19,20,0,15,[1,14209,8],[[14210,2,21],[14217,2,22],[14217,2,23]]],[0,24,12,0,25,26,0,15,[0,14217,3293],[[17499,3,72],[17501,5,73]]],[0,28,12,0,29,30,0,31,[3,17511,0],[]],[0,28,12,0,29,33,0,31,[3,17511,0],[]],[0,35,12,0,36,37,0,31,[3,17512,0],[]],[0,38,12,0,39,40,0,41,[3,17512,0],[]]]],[2,58,10,0,0,0,0,0,[0,17513,12,74],[[0,59,12,0,60,0,0,61,[0,17514,11],[[17521,3,72],[17522,5,74]]]]]]]],[],[1,0,1,0]]],[],[],[2,1,1,0]];
 </script>
 <script type="text/javascript">
 window.output["strings"] = [];
 </script>
 <script type="text/javascript">
-window.output["strings"] = window.output["strings"].concat(["*","*Fiscal","*C:\\TaxFiscal\\tests\\fiscal.robot","*../tests/fiscal.robot","*<p>Testes Fiscal\x3c/p>","*Criar Registro E11 e E113","*Start Session","*base","*New Browser","*Browser","*<p>Create a new playwright Browser with specified options.\x3c/p>","*chromium, headless=False, slowMo=00:00:01","*BrowserControl, Setter","*{\"browser\": \"chromium\", \"headless\": false, \"handleSIGINT\": true, \"handleSIGTERM\": true, \"handleSIGHUP\": true, \"timeout\": 30000.0, \"devtools\": false, \"slowMo\": 1000.0, \"tracesDir\": \"C:\\\\TaxFiscal\\\\logs\\\\browser\\\\traces\\\\b9ba171f-5e24-4278-b0be-aaa97e94adc9\"}","*Successfully created browser with options: {\"browser\":\"chromium\",\"headless\":false,\"handleSIGINT\":true,\"handleSIGTERM\":true,\"handleSIGHUP\":true,\"timeout\":30000,\"devtools\":false,\"slowMo\":1000,\"tracesDir\":\"C:\\\\TaxFiscal\\\\logs\\\\browser\\\\traces\\\\b9ba171f-5e24-4278-b0be-aaa97e94adc9\"}","*New Context","*<p>Create a new BrowserContext with specified options.\x3c/p>","*viewport={'width': 1920, 'height': 1080}","eNpVjEEOgjAQRa9iWBuDrtSlinFjQoQLDO2UjmkYMi0QQ7i7dGFSd/Pf+3/mDJTCPtx46hyD9tl5Y8B53G4yajsWfNR1WRUiLKlrPj14f63KhI2EU88SVjRnFqm18dznx3yVE+lgYzwd8mXNGkdSWClweAcVWKLbxSb5JzfkMPlswdc8KJugN4xQKaE+FB00DvXqggxRsTGOur89aXyZi/DkUX58+QLlhFLH","*Successfully created context. ","eNpVjUEOgjAQRa/irhsX6EpdqhA3JkS4wNAOdEzDkGmBGMLdpQuTupv/Xv6fRYHWOIQ7z71jMF5ddgU4j/udoq5nwUddl1UuwpK65jOA97eqTNhEOA8sYUOLskidjechO2WbnMkEG+P5mK1bNjiRxkqDwwJ0YIkuPvVPbshhsmvB1zxqm6A3TFBpoSHkPTQOzeZqGaPitnXU//XJ4Ku9Cs8e5cfXLzC8UeE=","*New Page","*<p>Open a new Page.\x3c/p>","*${BASE_URL}","*Successfully initialized new page object and opened url: <a href=\"https://www.hom.sped.cloudfiscal.com/SPED_WEB/frmSPED_Login.f1\">https://www.hom.sped.cloudfiscal.com/SPED_WEB/frmSPED_Login.f1\x3c/a>","*Fill Text","*<p>Clears and fills the given <code>txt\x3c/code> into the text field found by <code>selector\x3c/code>.\x3c/p>","*id=frmERP_Login:usuario, FIT@0410","*PageContent, Setter","*Fills the text 'FIT@0410' in the given field.","*id=frmERP_Login:senha, 2018@FIT#@","*Fills the text '2018@FIT#@' in the given field.","*Click","*<p>Simulates mouse click on the element found by <code>selector\x3c/code>.\x3c/p>","*xpath=//*[@id=\"frmERP_Login\"]/table[1]/tbody/tr/td/table/tbody/tr/td/table[2]/tbody/tr[6]/td/input","*Wait For Elements State","*<p>Waits for the element found by <code>selector\x3c/code> to satisfy state option.\x3c/p>","*text=CLOUD.SPED, timeout=30","*PageContent, Wait","*Waited for Element with selector text=CLOUD.SPED at state visible","*Acessar Menu Apuração ICMS","*actions","*Hover","*<p>Moves the virtual mouse and scrolls to the element found by <code>selector\x3c/code>.\x3c/p>","*${MENU_FISCAL}","*${MENU_FISCAL_APURA_ICMS}","*id=viewMenu:frmMenu:j_id194","*id=form:j_idt81","*Finish Session","*Take Screenshot","*<p>Takes a screenshot of the current window or element and saves it to disk.\x3c/p>","*PageContent","eNqlzDEOwyAMQNGrIHbqVF06AHch4ISoDUa2JXr8RlWkHKDD376eBy3Rg3L0v4rJ9JaeWrAPG30ylXEJdmYaggySGbFJJQWmmXThtOMgfrnzcNfh7rfe1gPZ9tUI578UM7aiNdjnNPXPYUKKX9BqQ5U="]);
+window.output["strings"] = window.output["strings"].concat(["*","*Tests","*C:\\Sovos\\cloud_fiscal\\TaxFiscal\\tests","*../tests","*Configuracoes","*C:\\Sovos\\cloud_fiscal\\TaxFiscal\\tests\\configuracoes.robot","*../tests/configuracoes.robot","*<p>Teste menu configurações\x3c/p>","*Importar tabela CFOP","*Start Session","*base","*New Browser","*Browser","*<p>Create a new playwright Browser with specified options.\x3c/p>","*firefox, headless=False, slowMo=00:00:00","*BrowserControl, Setter","*{\"browser\": \"firefox\", \"headless\": false, \"handleSIGINT\": true, \"handleSIGTERM\": true, \"handleSIGHUP\": true, \"timeout\": 30000.0, \"devtools\": false, \"slowMo\": 0.0, \"tracesDir\": \"C:\\\\Sovos\\\\cloud_fiscal\\\\TaxFiscal\\\\logs\\\\browser\\\\traces\\\\f7715219-bdee-4e9c-ada2-a8313f053ac2\"}","*Successfully created browser with options: {\"browser\":\"firefox\",\"headless\":false,\"handleSIGINT\":true,\"handleSIGTERM\":true,\"handleSIGHUP\":true,\"timeout\":30000,\"devtools\":false,\"slowMo\":0,\"tracesDir\":\"C:\\\\Sovos\\\\cloud_fiscal\\\\TaxFiscal\\\\logs\\\\browser\\\\traces\\\\f7715219-bdee-4e9c-ada2-a8313f053ac2\"}","*New Context","*<p>Create a new BrowserContext with specified options.\x3c/p>","*viewport={'width': 1920, 'height': 1080}","eNpVjEEOgjAQRa9iWBuDrtSlinFjQoQLDO2UjmkYMi0QQ7i7dGFSd/Pf+3/mDJTCPtx46hyD9tl5Y8B53G4yajsWfNR1WRUiLKlrPj14f63KhI2EU88SVjRnFqm18dznx3yVE+lgYzwd8mXNGkdSWClweAcVWKLbxSb5JzfkMPlswdc8KJugN4xQKaE+FB00DvXqggxRsTGOur89aXyZi/DkUX58+QLlhFLH","*Successfully created context. ","*{'acceptDownloads': False, 'ignoreHTTPSErrors': False, 'bypassCSP': False, 'viewport': {'height': 1080, 'width': 1920}, 'deviceScaleFactor': 1, 'isMobile': False, 'hasTouch': False, 'javaScriptEnabled': True, 'offline': False, 'hideRfBrowser': False}","*New Page","*<p>Open a new Page.\x3c/p>","*${BASE_URL}","*Successfully initialized new page object and opened url: <a href=\"https://www.hom.sped.cloudfiscal.com/SPED_WEB/frmSPED_Login.f1\">https://www.hom.sped.cloudfiscal.com/SPED_WEB/frmSPED_Login.f1\x3c/a>","*Fill Text","*<p>Clears and fills the given <code>txt\x3c/code> into the text field found by <code>selector\x3c/code>.\x3c/p>","*id=frmERP_Login:usuario, FIT@0410","*PageContent, Setter","*Fills the text 'FIT@0410' in the given field.","*id=frmERP_Login:senha, 2018@FIT#@","*Fills the text '2018@FIT#@' in the given field.","*Click","*<p>Simulates mouse click on the element found by <code>selector\x3c/code>.\x3c/p>","*xpath=//*[@id=\"frmERP_Login\"]/table[1]/tbody/tr/td/table/tbody/tr/td/table[2]/tbody/tr[6]/td/input","*Wait For Elements State","*<p>Waits for the element found by <code>selector\x3c/code> to satisfy state option.\x3c/p>","*text=CLOUD.SPED, timeout=30","*PageContent, Wait","*Waited for Element with selector text=CLOUD.SPED at state visible","*Acesso menu importação de arquivos","*actions","*Hover","*<p>Moves the virtual mouse and scrolls to the element found by <code>selector\x3c/code>.\x3c/p>","*${MENU_CONFIGURACOES}","*text=Tabelas Governo","*id=viewMenu:frmMenu:j_id43","*Select Options By","*<p>Selects options from select element found by <code>selector\x3c/code>.\x3c/p>","*xpath=//*[@id=\"form:j_idt84\"], text, CFOP","*Upload File By Selector","*<p>Uploads file from `path` to file input matched by selector.\x3c/p>","*id=form:upload_input, ${Arquivo}","*id=form:viewTopo:j_idt16_modal, visible, 5","*Waited for Element with selector id=form:viewTopo:j_idt16_modal at state visible","*Finish Session","*Take Screenshot","*<p>Takes a screenshot of the current window or element and saves it to disk.\x3c/p>","*PageContent","eNqlzDEOwyAMQNGrIHbqVF06AHch4ISoDUa2JXr8RlWkHKDD376eBy3Rg3L0v4rJ9JaeWrAPG30ylXEJdmYaggySGbFJJQWmmXThtOMgfrnzcNfh7rfe1gPZ9tUI578UM7aiNdjnNPXPYUKKX9BqQ5U=","*Fiscal","*C:\\Sovos\\cloud_fiscal\\TaxFiscal\\tests\\fiscal.robot","*../tests/fiscal.robot","*<p>Testes Fiscal\x3c/p>","*Criar Registro E11 e E113","eNqlUbtOxDAQ7PMVK9cnR7TR3Uk8XCBQDiWcroyWeONYON7I3pDfB1IicRRMNcWMNI+WZJlhQB/IVoVJiVMFMzrSjoUraM19Z5rm1HTn+qk+XerusW3PpikOvwMCuwxXBEXED+9QfHQgDGqPMCYaDmoUmXNVluu66pEnnWeyug+82MHnHoPueSrbF/PQXcxdOaRp48/sfNTDjTr+z78v8ah2sKLfki1RfAAVGK26VvdPFMVtyAxCmCyv8efar8mT/d5B8J0g94ko5pFlB2+LQOTtjq9UGXimqD8BABiISA==","*{\"browser\": \"firefox\", \"headless\": false, \"handleSIGINT\": true, \"handleSIGTERM\": true, \"handleSIGHUP\": true, \"timeout\": 30000.0, \"devtools\": false, \"slowMo\": 0.0, \"tracesDir\": \"C:\\\\Sovos\\\\cloud_fiscal\\\\TaxFiscal\\\\logs\\\\browser\\\\traces\\\\e405d944-e386-4ed8-9b3b-27dc79ce444d\"}","*Successfully created browser with options: {\"browser\":\"firefox\",\"headless\":false,\"handleSIGINT\":true,\"handleSIGTERM\":true,\"handleSIGHUP\":true,\"timeout\":30000,\"devtools\":false,\"slowMo\":0,\"tracesDir\":\"C:\\\\Sovos\\\\cloud_fiscal\\\\TaxFiscal\\\\logs\\\\browser\\\\traces\\\\e405d944-e386-4ed8-9b3b-27dc79ce444d\"}","*s1-s2-t1-k1-k3","*Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:\nError: Tried to take screenshot, but no page was open.","eNqljz0LgzAURXd/xSNzSegq6tA2Q2nRYhBHefgRAzFPYqx/v+BeO/RMd7gH7pXek49hRt1zTYFiUPLayLIsyqbKH3lR581dqUqWUfodsKQXOChEDt9GYzBOQyBgCcLo+yFlYwjzEguxbRsfaeLL3He8tbR2g1latLylSaiXvDW1vIjBT3t+kjaOD2eW/ecnAjN2gg3Nvmx1wVhglrBjR3d/8gH8LmhA","*Error: Tried to take screenshot, but no page was open.","*s1-s2-t1-k2-k1"]);
 </script>
 <script type="text/javascript">
-window.output["stats"] = [[{"elapsed":"00:00:13","fail":0,"label":"All Tests","pass":1,"skip":0}],[],[{"elapsed":"00:00:15","fail":0,"id":"s1","label":"Fiscal","name":"Fiscal","pass":1,"skip":0}]];
+window.output["stats"] = [[{"elapsed":"00:00:15","fail":1,"label":"All Tests","pass":1,"skip":0}],[],[{"elapsed":"00:00:18","fail":1,"id":"s1","label":"Tests","name":"Tests","pass":1,"skip":0},{"elapsed":"00:00:12","fail":0,"id":"s1-s1","label":"Tests.Configuracoes","name":"Configuracoes","pass":1,"skip":0},{"elapsed":"00:00:06","fail":1,"id":"s1-s2","label":"Tests.Fiscal","name":"Fiscal","pass":0,"skip":0}]];
 </script>
 <script type="text/javascript">
-window.output["errors"] = [];
+window.output["errors"] = [[17499,3,72,71],[17521,3,72,75]];
 </script>
 <script type="text/javascript">
-window.output["baseMillis"] = 1646855066061;
+window.output["baseMillis"] = 1651845948545;
 </script>
 <script type="text/javascript">
-window.output["generated"] = 15399;
+window.output["generated"] = 17610;
 </script>
 <script type="text/javascript">
 window.output["expand_keywords"] = null;
@@ -2123,7 +2127,7 @@ function addExecutionLog(main) {
     <div class="element-header closed" onclick="toggleKeyword('${id}')">
       <div class="element-header-left" title="${type}  {{if name}}{{html fullName}}  {{/if}}[${status}]">
         <span class="elapsed" title="Elapsed time">${times.elapsedTime}</span>
-        <span class="label keyword ${status.toLowerCase()}">${type}</span>
+        <span class="label ${status.toLowerCase()}">${type}</span>
         <span>{{html assign}}</span>
         <span class="name"><span class="parent-name">{{html libname}}{{if libname}} . {{/if}}</span>{{html name}}</span>
         <span class="arg">{{html arguments}}</span>
@@ -2131,7 +2135,7 @@ function addExecutionLog(main) {
       <div class="element-header-right" onclick="stopPropagation(event)">
         <a class="expand" title="Expand all" href="javascript:expandAll('${id}')"></a>
         <a class="collapse" title="Collapse all" href="javascript:collapseAll('${id}')"></a>
-        <a class="link" title="Link to this keyword" href="#${id}" onclick="makeElementVisible('${id}')"></a>
+        <a class="link" title="Link to this item" href="#${id}" onclick="makeElementVisible('${id}')"></a>
       </div>
       <div class="element-header-toggle" title="Toggle visibility"></div>
     </div>

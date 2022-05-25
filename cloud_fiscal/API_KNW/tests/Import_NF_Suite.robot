@@ -6,7 +6,6 @@ Documentation           Suite de testes de API's de importação de Notas Fiscai
 Resource                ${EXECDIR}/resources/Base.robot
 
 *Test Case*
-<<<<<<< HEAD
 # Importação NF Proprias
     
 
@@ -17,15 +16,3 @@ Resource                ${EXECDIR}/resources/Base.robot
 
 # Importação NF Terceiros
     
-=======
-Importação NF Proprias
-    POST Import NF Proprias
-
-
-Importação NF Serviço
-    POST Import NF Servico
-
-
-Importação NF Terceiros
-    POST Import NF Terceiros
->>>>>>> 1408b54774b1dc9bbd1e1eda362e3103ba79e848

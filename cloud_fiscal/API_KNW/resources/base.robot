@@ -2,7 +2,9 @@
 Documentation               Base Test
 
 #Library             Collections
+#Library             AllureReportingLibrary
 Library             RequestsLibrary
+
 
 Resource            routes/Empresas_Route.robot
 Resource            routes/Retida_Fonte.robot

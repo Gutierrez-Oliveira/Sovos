@@ -1,41 +1,8 @@
 *Settings*
 Documentation               Sessions route                 
-<<<<<<< HEAD
-=======
-Documentation               Sessions route
-<<<<<<< HEAD
-                    
-=======
-Resource                    
->>>>>>> 1408b54774b1dc9bbd1e1eda362e3103ba79e848
->>>>>>> d14d054458ae6b269c83e5041a564023f086fdab
-=======
->>>>>>> 3018ed3020a5450821f21599b5933942ec2d510e
+
 
 *Keywords*
-POST M110
-    [Arguments]     ${payload}
-
-    ${headers}      Create Dictionary    X-Token=01032007       X-Cnpj=11272927000105        content-type=application/json
-
-    ${response}     POST       ${API_USERS}/blocoM/M110       json=${payload}       expected_status=any
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-    ...                          data="{"objetos":[{"knwM110":{"dt_REFERENCIA":"2020-01-20","cod_EMPRESA":1,"cod_FILIAL":1,"id_USUARIO_IMP":"4523679100091","dt_IMPORTACAO":"2022-03-16","aliq_PIS":2,"nr_PROCESSO":"333","vl_ALIQ_PIS":2,"vl_AJUSTE":2,"cd_438":"1","ds_AJUSTE":"32","dt_AJUSTE":"2022-03-16","cd_436":"1","dm_AJUSTE":"1"}}]}"
-=======
-<<<<<<< HEAD
-    ...                          data={"objetos":[{"knwM110":{"cod_EMPRESA":0,"cod_FILIAL":0,"id_USUARIO_IMP":"string","dt_IMPORTACAO":"2022-03-21T21:22:44.321Z","aliq_PIS":0,"dt_REFERENCIA":"2022-03-21T21:22:44.321Z","nr_PROCESSO":"string","vl_ALIQ_PIS":0,"cd_436":"string","dm_AJUSTE":"string","vl_AJUSTE":0,"cd_438":"string","ds_AJUSTE":"string","dt_AJUSTE":"2022-03-21T21:22:44.321Z"}}]}
-=======
-    ...                          data="json aqui"
->>>>>>> 1408b54774b1dc9bbd1e1eda362e3103ba79e848
->>>>>>> d14d054458ae6b269c83e5041a564023f086fdab
-=======
-    ...                          data={"objetos":[{"knwM110":{"cod_EMPRESA":0,"cod_FILIAL":0,"id_USUARIO_IMP":"string","dt_IMPORTACAO":"2022-03-21T21:22:44.321Z","aliq_PIS":0,"dt_REFERENCIA":"2022-03-21T21:22:44.321Z","nr_PROCESSO":"string","vl_ALIQ_PIS":0,"cd_436":"string","dm_AJUSTE":"string","vl_AJUSTE":0,"cd_438":"string","ds_AJUSTE":"string","dt_AJUSTE":"2022-03-21T21:22:44.321Z"}}]}
->>>>>>> 3018ed3020a5450821f21599b5933942ec2d510e
-    ...                          headers=${ headers }
-
-    [return]        ${response}
 
 POST M410
     [Arguments]     ${payload}

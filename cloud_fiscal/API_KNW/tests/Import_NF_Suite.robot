@@ -5,12 +5,25 @@ Documentation           Suite de testes de API's de importação de Notas Fiscai
 
 Resource                ${EXECDIR}/resources/Base.robot
 
-*Test Case*
-# Importação NF Proprias
-    
+*Settings*
+Documentation           Session route test suite
 
+#Library                 RequestsLibrary
 
-# Importação NF Serviço
+Resource                ${EXECDIR}/resources/Base.robot
+
+*Test Cases*
+
+POST Import NF Servico
+
+    ${payload}      Create Dictionary               Content-Type=application/json
+
+    ${response}     POST Plano Contas       ${payload}
+
+    Status Should Be        200                     ${response}
+
+    Should Be Equal         ${response.json()}[sucesso]    ${true}
+
     
 
 

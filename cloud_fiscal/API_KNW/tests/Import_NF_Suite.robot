@@ -1,15 +1,6 @@
 *Settings*
 Documentation           Suite de testes de API's de importação de Notas Fiscais 
 
-#Library                 RequestsLibrary
-
-Resource                ${EXECDIR}/resources/Base.robot
-
-*Settings*
-Documentation           Session route test suite
-
-#Library                 RequestsLibrary
-
 Resource                ${EXECDIR}/resources/Base.robot
 
 *Test Cases*

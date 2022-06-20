@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.0 on win32)" generated="20220620 15:46:02.281" rpa="false" schemaversion="3">
+<suite id="s1" name="Atualizacao NF Suite" source="C:\Sovos\cloud_fiscal\API_KNW\tests\Atualizacao_NF_Suite.robot">
+<test id="s1-t1" name="Atualizacao NF C100" line="8">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20220620 15:46:02.314" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
+<status status="PASS" starttime="20220620 15:46:02.314" endtime="20220620 15:46:02.315"/>
+</kw>
+<kw name="POST Atualizar NF C100">
+<var>${response}</var>
+<arg>${payload}</arg>
+<msg timestamp="20220620 15:46:02.316" level="FAIL">No keyword with name 'POST Atualizar NF C100' found.</msg>
+<status status="FAIL" starttime="20220620 15:46:02.316" endtime="20220620 15:46:02.316"/>
+</kw>
+<kw name="Status Should Be">
+<arg>200</arg>
+<arg>${response}</arg>
+<status status="NOT RUN" starttime="20220620 15:46:02.318" endtime="20220620 15:46:02.318"/>
+</kw>
+<status status="FAIL" starttime="20220620 15:46:02.314" endtime="20220620 15:46:02.318">No keyword with name 'POST Atualizar NF C100' found.</status>
+</test>
+<doc>Suite de testes atualização das NFs</doc>
+<status status="FAIL" starttime="20220620 15:46:02.284" endtime="20220620 15:46:02.320"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Atualizacao NF Suite">Atualizacao NF Suite</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20220620 15:46:02.311" level="ERROR">Error in file 'C:\Sovos\cloud_fiscal\API_KNW\tests\Atualizacao_NF_Suite.robot' on line 4: Resource file 'C:\Sovos\cloud_fiscal\API_KNW\tests\resources\Base.robot' does not exist.</msg>
+</errors>
+</robot>

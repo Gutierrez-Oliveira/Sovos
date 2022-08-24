@@ -9,7 +9,7 @@ POST Import NF Servico
 
     ${payload}      Create Dictionary               Content-Type=application/json
 
-    ${response}     POST Plano Contas       ${payload}
+    ${response}     POST Import NF Servico          ${payload}
 
     Status Should Be        200                     ${response}
 

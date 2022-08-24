@@ -27,4 +27,3 @@ Resource            routes/Integracao_Sistemas_Terceiros.robot
 
 *Variables*
 ${API_USERS}            http://www.hom.sped.cloudfiscal.com/SPED_WEB/api/knw/v2
-${API_USERS2}           http://www.qa.sped.cloudfiscal.com/SPED_WEB/api/knw/v2

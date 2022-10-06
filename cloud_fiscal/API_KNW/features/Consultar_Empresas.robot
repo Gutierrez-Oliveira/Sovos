@@ -4,12 +4,11 @@ Documentation           Consulta de dados da Empresa
 Resource                ${EXECDIR}/resources/Base.robot
 
 *Test Cases*
-Consultar Empresas
-
+Cenário 01: Consultar dados da empresa com sucesso
+#Descrição: Faz um GET para consultar dados da empresa
+#Retorno: Status 200 & Sucesso (True)
     ${payload}      Create Dictionary               
 
     ${response}     GET Empresas       json=${payload}
 
-    Status Should Be        200        ${response}
-    Should Be Equal                    ${response.json()}[sucesso]          ${true}
-    Should Be Equal                    ${response.json()}[erro]             ${null}
+    Verificar se o status foi recebido com sucesso

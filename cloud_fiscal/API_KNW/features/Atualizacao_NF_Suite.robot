@@ -3,12 +3,14 @@ Documentation           Suite de testes atualização das NFs
 
 Resource                ${EXECDIR}/resources/Base.robot
 
-*Test Cases*
 
-Atualizacao NF C100
+***Test Cases***
+Cenário 01: Efetuar chamada na API Atualização NF C100
+#Descrição: Envia Atualização NF
+#Retorno: Status 200 & Sucesso (True)
 
     ${payload}      Create Dictionary               Content-Type=application/json
 
-    ${response}     POST Atualizar NF C100          ${payload}
+     ${response}     POST Atualizar NF C100          ${payload}
 
-    Status Should Be        200                     ${response}
+    Verificar se o status foi recebido com sucesso
